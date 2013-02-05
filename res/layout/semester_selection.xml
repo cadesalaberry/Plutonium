@@ -1,0 +1,72 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000" >
+
+    <ListView
+        android:id="@+id/semester_selection_list"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_alignTop="@+id/new_semester_button"
+        android:layout_marginBottom="15dp"
+        android:layout_marginLeft="10dp"
+        android:layout_toLeftOf="@+id/new_semester_button"
+        android:background="#FFFFFF"
+        android:divider="#000000"
+        android:dividerHeight="1dp" >
+    </ListView>
+
+    <Button
+        android:id="@+id/new_semester_button"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="15dp"
+        android:onClick="newSemester"
+        android:text="New"
+        android:textColor="#FFFFFF" />
+
+
+    <Button
+        android:id="@+id/semester_grades_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/new_semester_button"
+        android:layout_alignRight="@+id/new_semester_button"
+        android:layout_below="@+id/new_semester_button"
+        android:onClick="gradesSemester"
+        android:text="Grades"
+        android:textColor="#FFFFFF" />
+
+
+
+    <Button
+        android:id="@+id/semester_settings_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/semester_grades_button"
+        android:layout_alignRight="@+id/semester_grades_button"
+        android:layout_below="@+id/semester_grades_button"
+        android:text="Settings"
+        android:textColor="#FFFFFF" />
+
+
+    <Button
+        android:id="@+id/semester_selection_grading_scheme_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/semester_settings_button"
+        android:layout_alignRight="@+id/semester_settings_button"
+        android:layout_below="@+id/semester_settings_button"
+        android:onClick="gradingSchemeSemesterSelection"
+        android:text="Grading Scheme"
+        android:textColor="#FFFFFF" />
+
+
+
+</RelativeLayout>

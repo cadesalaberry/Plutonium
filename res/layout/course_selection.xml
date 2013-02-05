@@ -1,0 +1,50 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000" >
+
+
+
+
+    <ListView
+        android:id="@+id/android:list"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_alignTop="@+id/course_selection_back_button"
+        android:layout_marginBottom="15dp"
+        android:layout_marginLeft="10dp"
+        android:layout_toLeftOf="@+id/course_selection_back_button"
+        android:background="#FFFFFF"
+        android:divider="#000000"
+        android:dividerHeight="1dp" >
+
+    </ListView>
+
+    <Button
+        android:id="@+id/course_selection_back_button"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="15dp"
+        android:onClick="backCourseSelection"
+        android:text="Back"
+        android:textColor="#FFFFFF" />
+
+
+    <Button
+        android:id="@+id/course_selection_add_course_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/course_selection_back_button"
+        android:layout_alignRight="@+id/course_selection_back_button"
+        android:layout_below="@+id/course_selection_back_button"
+        android:onClick="addCourseCourseSelection"
+        android:text="Add Course"
+        android:textColor="#FFFFFF" />
+
+</RelativeLayout>

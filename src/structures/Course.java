@@ -5,12 +5,40 @@ package structures;
 
 public class Course {
 
+	/*
+	private class courseGP{
+		private double courseGP = 0;
+		private String courseLetter= null;
+		
+		public void setLetterGrade(String letter){
+			this.courseLetter = letter;
+		}
+		public void setGP(double gp){
+			this.courseGP = gp;
+		}
+		public String getLetterGrade(){
+			return this.courseLetter;
+		}
+		public double getGP(){
+			return this.courseGP;
+		}
+	}
+	*/
+	
 	private String subject;
 	private int courseNumber;
+	private String location;
 	private String instructorName;
-	Average average = new Average(subject + courseNumber + " - "
-			+ instructorName);
-
+	private String instructorEmail;
+	private int credits;
+	//private courseGP courseGP;
+	private double courseGP;
+	private String courseLetter;
+	
+	public Average average = new Average(subject + courseNumber + " - "
+			+ instructorName); 
+	
+	
 	/**
 	 * Should fetch the data from a course database (Website?)
 	 * 
@@ -20,22 +48,83 @@ public class Course {
 		// this(Research.courseCodeByCRN(crn), Research.instructorByCRN(crn));
 	}
 
-	public Course(String subject, int courseNumber, String instructor) {
+	public Course(String subject, String location, String instructor, String email, int credits) {
+		
 		this.subject = subject;
-		this.courseNumber = courseNumber;
+		this.credits = credits;
+		//this.courseNumber = courseNumber;
 		this.instructorName = instructor;
+		this.location = location;
+		this.instructorEmail = email;
+		//this.courseGP = new courseGP();
+		this.courseGP = 0;
+		this.courseLetter= null;
+		
 	}
-
-	public String getCourseCode() {
-		return subject + courseNumber;
+	
+	
+	
+	public void setCourseGP(String letterValue){
+//		if(this.getLetterGrade().equals(letterValue)){
+//			return;
+//		}
+		
+		this.setLetterGrade(letterValue);
+		
+		for(int i =0;i<Data.gpaValue.size();i++){
+			if(Data.gpaValue.isEmpty()){
+				break;
+			}
+			else if(Data.gpaValue.get(i).getLetterGrade().equals(letterValue)){
+				this.setGP(Data.gpaValue.get(i).getGradePoint());
+			}
+		}
+		
 	}
-
+			
+	public void setLetterGrade(String letter){
+		this.courseLetter = letter;
+	}
+	public void setGP(double gp){
+		this.courseGP = gp;
+	}
+	public String getLetterGrade(){
+		return this.courseLetter;
+	}
+	public double getGP(){
+		return this.courseGP;
+	}
+	
+	
+	public int getCredit(){
+		return this.credits;
+	}
+	
 	public String getInstructorName() {
-		return instructorName;
+		return this.instructorName;
 	}
 
 	public Average getAverage() {
-		return average;
+		return this.average;
 	}
+	
+	public String getInstructorEmail(){
+		return this.instructorEmail;
+	}
+	
+	public String getLocation(){
+		return this.location;
+	}
+	
+	public String getSubject() {
+		return this.subject;
+	}
+	
+	@Deprecated
+	public String getCourseCode() {
+		return this.subject + this.courseNumber;
+	}
+	
+	
 
 }

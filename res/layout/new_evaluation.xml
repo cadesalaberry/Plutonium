@@ -1,0 +1,90 @@
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000" >
+
+    <Button
+        android:id="@+id/evaluation_save"
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="15dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="15dp"
+        android:onClick="saveEvaluation"
+        android:text="Save"
+        android:textColor="#FFFFFF" />
+
+    <Button
+        android:id="@+id/evaluation_cancel"
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="15dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="15dp"
+        android:onClick="cancelEvaluation"
+        android:text="Cancel"
+        android:textColor="#FFFFFF" />
+
+    <TextView
+        android:id="@+id/examtype_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="5dp"
+        android:text="Evaluation Type"
+        android:textColor="@android:color/white" 
+        android:textSize="20dp"/>
+
+
+    <EditText
+        android:id="@+id/examtype_box"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/examtype_text"
+        android:layout_below="@+id/examtype_text"
+        android:layout_marginBottom="5dp"
+        android:background="#FFFFFF"
+        android:ems="10"
+        android:inputType="textNoSuggestions"
+        android:textColor="@android:color/black"
+        android:textSize="16dp" 
+        android:imeOptions="actionDone" >
+
+    </EditText>
+
+    <TextView
+        android:id="@+id/percentage_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/examtype_box"
+        android:layout_below="@+id/examtype_box"
+        android:layout_marginBottom="2dp"
+        android:text="Worth Percentage"
+        android:textColor="@android:color/white"
+        android:textSize="20dp" />
+
+    <EditText
+        android:id="@+id/percentage_box"
+        android:layout_width="3dp"
+        android:layout_height="20dp"
+        android:layout_alignLeft="@+id/examtype_text"
+        android:layout_alignRight="@+id/evaluation_save"
+        android:layout_below="@+id/percentage_text"
+        android:background="#FFFFFF"
+        android:ems="10"
+        android:imeOptions="actionDone"
+        android:inputType="number"
+        android:singleLine="true"
+        android:textColor="@android:color/black"
+        android:textSize="16dp" />
+
+</RelativeLayout>

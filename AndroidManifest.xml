@@ -1,0 +1,31 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.grademanager"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="14"
+        android:targetSdkVersion="15" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity android:name="layoutClass.New_Semester"></activity>
+        <activity android:name="layoutClass.Course_Editor"></activity>
+        <activity android:name="layoutClass.Course_Selection"></activity>
+        <activity android:name="layoutClass.Grading_Scheme"></activity>
+        <activity android:name="layoutClass.Semester_Grade"></activity>
+        <activity android:name="layoutClass.Semester_Selection">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="layoutClass.Evaluation_Editor"></activity>
+        <activity android:name="layoutClass.New_Evaluation"></activity>
+    </application>
+
+</manifest>

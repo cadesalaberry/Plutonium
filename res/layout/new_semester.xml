@@ -1,0 +1,101 @@
+
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000" >
+
+    <TextView
+        android:id="@+id/new_semester_term_text"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="10dp"
+        android:text="Term"
+        android:textColor="#FFFFFF"
+        android:textSize="20dp" />
+
+    <Button
+        android:id="@+id/new_semester_cancel_button"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="15dp"
+        android:layout_marginRight="15dp"
+        android:onClick="cancelNewSemester"
+        android:text="Cancel"
+        android:textColor="#FFFFFF" />
+
+    <Spinner
+        android:id="@+id/new_semester_spinner"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/new_semester_term_text"
+        android:layout_below="@+id/new_semester_term_text"
+        android:background="#FFFFFF" />
+
+    <TextView
+        android:id="@+id/new_semester_year_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/new_semester_spinner"
+        android:layout_below="@+id/new_semester_spinner"
+        android:layout_marginBottom="5dp"
+        android:text="Year"
+        android:textColor="#FFFFFF"
+        android:textSize="20dp" />
+
+    <EditText
+        android:id="@+id/new_semester_year_box"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/new_semester_year_text"
+        android:layout_alignRight="@+id/new_semester_save_button"
+        android:layout_below="@+id/new_semester_year_text"
+        android:layout_marginBottom="5dp"
+        android:background="#FFFFFF"
+        android:ems="10"
+        android:inputType="number"
+        android:textSize="20dp" 
+        android:imeOptions="actionDone"/>
+
+    <TextView
+        android:id="@+id/new_semester_comments_text"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_alignLeft="@+id/new_semester_year_box"
+        android:layout_below="@+id/new_semester_year_box"
+        android:text="Comments"
+        android:textColor="#FFFFFF"
+        android:textSize="20dp" />
+
+    <EditText
+        android:id="@+id/new_semester_comments_box"
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:layout_alignLeft="@+id/new_semester_comments_text"
+        android:layout_alignRight="@+id/new_semester_cancel_button"
+        android:layout_below="@+id/new_semester_comments_text"
+        android:background="#FFFFFF"
+        android:ems="10"
+        android:inputType="textNoSuggestions"
+        android:textColor="#000000"
+        android:textSize="20dp" 
+        android:imeOptions="actionDone"/>
+
+    <Button
+        android:id="@+id/new_semester_save_button"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/new_semester_cancel_button"
+        android:layout_alignBottom="@+id/new_semester_cancel_button"
+        android:layout_alignLeft="@+id/new_semester_year_text"
+        android:onClick="saveNewSemester"
+        android:text="Save"
+        android:textColor="#FFFFFF" />
+
+</RelativeLayout>
