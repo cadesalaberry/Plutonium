@@ -17,6 +17,10 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.view.ContextMenu;
+import android.view.MenuItem;
+import android.view.View;  
+import android.view.ContextMenu.ContextMenuInfo;
 
 public class Course_Selection extends ListActivity {
 	ListView courseList;
@@ -25,6 +29,7 @@ public class Course_Selection extends ListActivity {
 	String[] values;
 	ArrayAdapter<String> adapter;
 	public static int coursepos;
+	int deletepos;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -63,6 +68,28 @@ public class Course_Selection extends ListActivity {
 		});
 		
 	setListAdapter(adapter);
+	registerForContextMenu(courseList);
+	}
+	
+	public void onCreateContextMenu(ContextMenu menu, View v,ContextMenuInfo menuInfo) {  
+		super.onCreateContextMenu(menu, v, menuInfo);  
+		AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) menuInfo;
+	    deletepos = (int) info.id;
+		menu.setHeaderTitle("More");  
+		menu.add(0, v.getId(), 0, "Delete");  
+	} 
+
+	@Override  
+    public boolean onContextItemSelected(MenuItem item) {  
+        if(item.getTitle()=="Delete"){deleteCourse(item.getItemId());}  
+        else {return false;}  
+    return true;  
+    } 
+	
+	public void deleteCourse(int i) {
+		courses.remove(deletepos);
+		Intent intent = new Intent(getApplicationContext(), Course_Selection.class);
+		startActivity(intent);
 	}
 	
 	public void addCourseCourseSelection(View view) {

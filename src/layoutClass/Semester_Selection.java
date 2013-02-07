@@ -13,16 +13,23 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.view.ContextMenu;  
+import android.view.MenuItem;
+import android.view.View;  
+import android.view.ContextMenu.ContextMenuInfo;
 
 public class Semester_Selection extends Activity {
 	ListView semesterList;
 	String[] values;
 	String semesterGPA;
 	ArrayAdapter<String> adapter;
+	int deletepos;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -57,11 +64,30 @@ public class Semester_Selection extends Activity {
 		});
 		
 		semesterList.setAdapter(adapter);
+		registerForContextMenu(semesterList);
 	}
 		  
 	
+	public void onCreateContextMenu(ContextMenu menu, View v,ContextMenuInfo menuInfo) {  
+		super.onCreateContextMenu(menu, v, menuInfo);  
+		AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) menuInfo;
+	    deletepos = (int) info.id;
+		menu.setHeaderTitle("More");  
+		menu.add(0, v.getId(), 0, "Delete");  
+	} 
 
-
+	@Override  
+    public boolean onContextItemSelected(MenuItem item) {  
+        if(item.getTitle()=="Delete"){deleteSemester(item.getItemId());}  
+        else {return false;}  
+    return true;  
+    } 
+	
+	public void deleteSemester(int i) {
+		Data.createdSemesters.remove(deletepos);
+		Intent intent = new Intent(getApplicationContext(), Semester_Selection.class);
+		startActivity(intent);
+	}
 	
 	public void newSemester(View view) {
 		Intent intent = new Intent(getApplicationContext(), New_Semester.class);
