@@ -8,11 +8,8 @@
         android:id="@+id/semester_selection_list"
         android:layout_width="match_parent"
         android:layout_height="fill_parent"
-        android:layout_alignParentBottom="true"
-        android:layout_alignTop="@+id/new_semester_button"
-        android:layout_marginBottom="15dp"
-        android:layout_marginLeft="10dp"
-        android:layout_toLeftOf="@+id/new_semester_button"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="70dp"
         android:background="#FFFFFF"
         android:divider="#000000"
         android:dividerHeight="1dp" >
@@ -22,11 +19,8 @@
         android:id="@+id/new_semester_button"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="15dp"
+        android:layout_alignRight="@+id/semester_selection_list"
+        android:layout_marginLeft="200dp"
         android:onClick="newSemester"
         android:text="New"
         android:textColor="#FFFFFF" />
@@ -34,11 +28,12 @@
 
     <Button
         android:id="@+id/semester_grades_button"
-        android:layout_width="wrap_content"
+        android:layout_width="83dp"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/new_semester_button"
-        android:layout_alignRight="@+id/new_semester_button"
-        android:layout_below="@+id/new_semester_button"
+        android:layout_alignLeft="@+id/semester_selection_list"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="400dp"
         android:onClick="gradesSemester"
         android:text="Grades"
         android:textColor="#FFFFFF" />
@@ -49,9 +44,9 @@
         android:id="@+id/semester_settings_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/semester_grades_button"
-        android:layout_alignRight="@+id/semester_grades_button"
-        android:layout_below="@+id/semester_grades_button"
+        android:layout_alignTop="@+id/semester_grades_button"
+        android:layout_alignBottom="@+id/semester_grades_button"
+        android:layout_marginLeft="80dp"
         android:text="Settings"
         android:textColor="#FFFFFF" />
 
@@ -60,13 +55,37 @@
         android:id="@+id/semester_selection_grading_scheme_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/semester_settings_button"
-        android:layout_alignRight="@+id/semester_settings_button"
-        android:layout_below="@+id/semester_settings_button"
+        android:layout_alignTop="@+id/semester_settings_button"
+        android:layout_alignRight="@+id/semester_selection_list"
         android:onClick="gradingSchemeSemesterSelection"
         android:text="Grading Scheme"
         android:textColor="#FFFFFF" />
 
+    <EditText
+        android:id="@+id/CGPA_Text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/new_semester_button"
+        android:layout_alignBottom="@+id/new_semester_button"
+        android:layout_alignParentLeft="true"
+        android:layout_marginRight="160dp"
+        android:text="Cumulative GPA"
+        android:textColor="#FFFFFF">
 
+        <requestFocus />
+    </EditText>
+
+    <TextView
+        android:id="@+id/CGPA_Box"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/new_semester_button"
+        android:layout_alignBottom="@+id/new_semester_button"
+        android:layout_marginLeft="150dp"
+        android:layout_marginRight="100dp"
+        android:background="#FFFFFF"
+        android:text="cgpa"
+        android:ems="10" />
+    
 
 </RelativeLayout>

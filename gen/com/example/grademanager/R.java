@@ -18,6 +18,8 @@ public final class R {
         public static final int ic_launcher=0x7f020000;
     }
     public static final class id {
+        public static final int CGPA_Box=0x7f07002d;
+        public static final int CGPA_Text=0x7f07002c;
         public static final int course_editor_cancel=0x7f070001;
         public static final int course_editor_course_location_box=0x7f070005;
         public static final int course_editor_course_location_text=0x7f070004;

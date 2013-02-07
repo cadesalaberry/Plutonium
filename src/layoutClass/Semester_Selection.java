@@ -16,6 +16,7 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.AdapterView.OnItemClickListener;
@@ -30,6 +31,8 @@ public class Semester_Selection extends Activity {
 	String semesterGPA;
 	ArrayAdapter<String> adapter;
 	int deletepos;
+	float gpa = 0;
+	String cgpa;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +46,17 @@ public class Semester_Selection extends Activity {
 		Data.gpaValue = new ArrayList<GPA>();
 		Data.dataLoaded = true;
 		}
+		
+		
+		if(Data.createdSemesters.size() != 0) {
+			for(int i = 0; i < Data.createdSemesters.size(); i++) {
+				gpa = gpa + (float) Data.createdSemesters.get(i).getGPA();
+			}
+			gpa = gpa/Data.createdSemesters.size();
+			cgpa = (Float.toString(gpa));
+		}
+		else
+			cgpa = "N/A";
 		
 		values = new String[Data.createdSemesters.size()];
 		
