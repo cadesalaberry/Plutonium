@@ -7,12 +7,11 @@ import java.util.ArrayList;
 
 public class Average extends Grade {
 
-	public ArrayList<Grade> breakdown;
+	private ArrayList<Grade> breakdown;
 	private String name;
 
-	public Average(String name) {
+	Average(String name) {
 		super(name);
-		this.breakdown = new ArrayList<Grade>();
 	}
 
 	public void addGrade(Grade grade) {

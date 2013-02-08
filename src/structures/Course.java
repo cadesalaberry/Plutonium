@@ -3,6 +3,8 @@
  */
 package structures;
 
+import java.util.ArrayList;
+
 public class Course {
 
 	/*
@@ -34,9 +36,10 @@ public class Course {
 	//private courseGP courseGP;
 	private double courseGP;
 	private String courseLetter;
+	private ArrayList<Evaluation> evaluations;
 	
-	public Average average = new Average(subject + courseNumber + " - "
-			+ instructorName); 
+	Average average = new Average(subject + courseNumber + " - "
+			+ instructorName);
 	
 	
 	/**
@@ -59,10 +62,21 @@ public class Course {
 		//this.courseGP = new courseGP();
 		this.courseGP = 0;
 		this.courseLetter= null;
+		this.evaluations = new ArrayList<Evaluation>();
 		
 	}
 	
+	public void addEvaluation(Evaluation evaluation) {
+		evaluations.add(evaluation);
+	}
 	
+	public void removeEvaluation(Evaluation evaluation) {
+		evaluations.remove(evaluation);
+	}
+	
+	public ArrayList<Evaluation> getEvaluations() {
+		return evaluations;
+	}
 	
 	public void setCourseGP(String letterValue){
 //		if(this.getLetterGrade().equals(letterValue)){

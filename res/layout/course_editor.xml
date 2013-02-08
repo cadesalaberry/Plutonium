@@ -169,28 +169,4 @@
         android:textSize="16dp"
         android:imeOptions="actionDone" />
 
-
-    <EditText
-        android:id="@+id/course_editor_inputText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/course_editor_save"
-        android:layout_alignLeft="@+id/course_editor_save"
-        android:layout_alignRight="@+id/course_editor_save"
-        android:background="#FFFFFF"
-        android:ems="10"
-        android:inputType="textNoSuggestions"
-        android:textColor="@android:color/black"
-        android:textSize="16dp"
-        android:imeOptions="actionDone" />
-
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/course_editor_inputText"
-        android:layout_alignLeft="@+id/course_editor_inputText"
-        android:text="Letter Grade Test Box" 
-        android:textColor="#FFFFFF"/>
-
 </RelativeLayout>

@@ -1,16 +1,20 @@
 package layoutClass;
 
-import structures.Average;
 import structures.Course;
 import structures.Data;
 
 import com.example.grademanager.R;
 
 import android.app.Activity;
+import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
 import android.view.WindowManager;
+import android.view.View.OnClickListener;
+import android.widget.Button;
 import android.widget.EditText;
 
 public class Course_Editor extends Activity  {
@@ -19,7 +23,7 @@ public class Course_Editor extends Activity  {
 	EditText profName;
 	EditText profEmail;
 	EditText courseCredits;
-	EditText test;
+	final Context context = this;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -39,29 +43,47 @@ public class Course_Editor extends Activity  {
 		profName = (EditText) findViewById(R.id.course_editor_name_of_professor_box);
 		profEmail = (EditText) findViewById(R.id.course_editor_professor_email_box);
 		courseCredits = (EditText) findViewById(R.id.course_editor_credits_box);
-		test = (EditText) findViewById(R.id.course_editor_inputText);
 		
 		
 		String subject = courseSubject.getText().toString();
 		String location = courseLocation.getText().toString();
 		String prof_name = profName.getText().toString();
 		String prof_email = profEmail.getText().toString();
-		int credits = Integer.parseInt(courseCredits.getText().toString());
+		String credits = courseCredits.getText().toString();
 		
-		Course course = new Course(subject, location, prof_name, prof_email, credits);
-		Average average = new Average(subject);
-		course.setCourseGP(test.getText().toString());
+		if(subject.compareTo("") == 0 || credits.compareTo("") == 0) {
+			final Dialog errorPopUp = new Dialog(context);
+			
+			errorPopUp.setCanceledOnTouchOutside(false);
+        	errorPopUp.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        	errorPopUp.setContentView(R.layout.course_editor_error);
+        	
+        	Button ok = (Button) errorPopUp.findViewById(R.id.course_editor_error_ok_button);
+        	
+        	ok.setOnClickListener(new OnClickListener () {
+
+				@Override
+				public void onClick(View v) {
+					// TODO Auto-generated method stub
+					errorPopUp.dismiss();
+				}
+        	});
+        	errorPopUp.show();
+		}
+		else {
+			int cred = Integer.parseInt(credits);
+			Course course = new Course(subject, location, prof_name, prof_email, cred);
 		
-		for(int i = 0; i < Data.createdSemesters.size(); i++) {
-			 if(Data.currentSemester.compareTo((Data.createdSemesters.get(i).getSession().toString() + " " + 
-					 Data.createdSemesters.get(i).getYear())) == 0) {
-				 Data.createdSemesters.get(i).addCourse(course);
-				 break;
-			 }
-			}
-		
-		Intent intent = new Intent(getApplicationContext(), Course_Selection.class);
-		startActivity(intent);
+			for(int i = 0; i < Data.createdSemesters.size(); i++) {
+				if((Data.currentSemester.getSession().toString() + " " + 
+					Data.currentSemester.getYear()).compareTo((Data.createdSemesters.get(i).getSession().toString() + " " + 
+					Data.createdSemesters.get(i).getYear())) == 0) {
+					Data.createdSemesters.get(i).addCourse(course);
+					break;
+					}
+				}
+			Intent intent = new Intent(getApplicationContext(), Course_Selection.class);
+			startActivity(intent);
+		}
 	}
-	
 }

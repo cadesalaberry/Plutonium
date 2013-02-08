@@ -12,63 +12,73 @@ import android.app.Activity;
 import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.ContextMenu;
+import android.view.ContextMenu.ContextMenuInfo;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.view.ContextMenu;
-import android.view.MenuItem;
-import android.view.View;  
-import android.view.ContextMenu.ContextMenuInfo;
+import android.widget.TextView;
 
-public class Course_Selection extends ListActivity {
-	ListView courseList;
+public class Course_Selection extends Activity {
 	Semester thisSemester;
 	ArrayList<Course> courses;
 	String[] values;
 	ArrayAdapter<String> adapter;
+	ListView courseList;
 	public static int coursepos;
 	int deletepos;
+	float gpa = 0;
+	String tgpa;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.course_selection);
+		courseList = (ListView) findViewById(R.id.course_selection_list);
+		TextView myText = (TextView) findViewById(R.id.TGPA_Box);
+		TextView myText2 = (TextView) findViewById(R.id.Semester_Box);
 		
-		courseList = getListView();
-		
-		for(int i = 0; i < Data.createdSemesters.size(); i++) {
+		/*for(int i = 0; i < Data.createdSemesters.size(); i++) {
 		 if(Data.currentSemester.compareTo((Data.createdSemesters.get(i).getSession().toString() + " " + 
 			Data.createdSemesters.get(i).getYear())) == 0) {
 			 thisSemester = Data.createdSemesters.get(i);
 			 break;
 		 }
-		}
+		}*/
+	 thisSemester = Data.currentSemester;
 	 courses = thisSemester.getCourses();
 	 
+	 if(courses.size() != 0)
+		 tgpa = (Float.toString(gpa));
+	 else
+		 tgpa = "N/A";
+	 
+	 myText.setText(String.valueOf(tgpa));
+	 myText2.setText(thisSemester.toString());
 	 values = new String[courses.size()];
 	 
-	 /*values[0] = "Test";
-	 values[1] = "Olaf";*/
 	 for(int i = 0; i < courses.size(); i++) {
 		 values[i] = courses.get(i).getSubject() + "      " + courses.get(i).getLetterGrade() + "  " + courses.get(i).getGP();
 	 }
 	 
-	 adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, values);
-		courseList.setOnItemClickListener(new OnItemClickListener() { 
+	 adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, android.R.id.text1, values);
+	 
+	 courseList.setOnItemClickListener(new OnItemClickListener() { 
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 			// TODO Auto-generated method stub
-			//coursepos = position;
 			Data.currentCourse = courses.get(position);
-			Intent intent = new Intent(getApplicationContext(), Evaluation_Editor.class);
+			Intent intent = new Intent(getApplicationContext(), Evaluation_Selection.class);
 			startActivity(intent);
 			}
 		});
-		
-	setListAdapter(adapter);
-	registerForContextMenu(courseList);
+	 
+	 courseList.setAdapter(adapter);
+	 registerForContextMenu(courseList);
+	 
 	}
 	
 	public void onCreateContextMenu(ContextMenu menu, View v,ContextMenuInfo menuInfo) {  
@@ -99,12 +109,7 @@ public class Course_Selection extends ListActivity {
 	
 	public void backCourseSelection(View view) {
 		if(!courses.isEmpty()) {
-			for(int i = 0; i < Data.createdSemesters.size(); i++) {
-				 if(Data.currentSemester.compareTo((Data.createdSemesters.get(i).getSession().toString() + " " + 
-						 Data.createdSemesters.get(i).getYear())) == 0) {
-					 Data.createdSemesters.get(i).computeGPA(courses);
-				 }
-				}
+			thisSemester.computeGPA(courses);
 		}
 		Intent intent = new Intent(getApplicationContext(), Semester_Selection.class);
 		startActivity(intent);

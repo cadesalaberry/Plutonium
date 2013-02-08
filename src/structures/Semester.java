@@ -6,8 +6,7 @@ public class Semester {
 
 	private int year;
 	private Session session;
-	public ArrayList<Course> courses;
-	public Course currentCourse;
+	private ArrayList<Course> courses;
 	private String title;
 	private String comments;
 	private double gpaValue;

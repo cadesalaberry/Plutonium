@@ -1,3 +1,4 @@
+
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -30,7 +31,7 @@
         android:dividerHeight="1dp"
         android:textColor="#000000" >
     </ListView>
-
+
     <Spinner
         android:id="@+id/letter_grades_spinner"
         android:layout_width="40dp"
@@ -51,7 +52,7 @@
         android:text="GRADE POINTS"
         android:textColor="#FFFFFF"
         android:textSize="12dp" />
-
+
     <EditText
         android:id="@+id/grading_scheme_grade_points_box"
         android:layout_width="40dp"
@@ -61,9 +62,10 @@
         android:layout_toRightOf="@+id/grading_scheme_grade_points_text"
         android:background="#FFFFFF"
         android:ems="10"
-        android:imeOptions="actionDone"
-        android:inputType="numberDecimal" >
+        android:inputType="numberDecimal" 
+        android:imeOptions="actionDone" >
     </EditText>
+
 
     <Button
         android:id="@+id/grading_scheme_ok_button"
@@ -71,12 +73,14 @@
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_alignTop="@+id/grading_scheme_grade_points_box"
+        android:layout_toRightOf="@+id/grading_scheme_grade_points_box"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:layout_toRightOf="@+id/grading_scheme_grade_points_box"
         android:onClick="saveGradingScheme"
         android:text="Ok"
         android:textColor="#FFFFFF" />
+
+
 
     <Button
         android:id="@+id/grading_scheme_back_button"

@@ -7,13 +7,18 @@ import structures.Session;
 import com.example.grademanager.R;
 
 import android.app.Activity;
+import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
+import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 
@@ -25,6 +30,7 @@ public class New_Semester extends Activity implements OnItemSelectedListener{
 	String term;
 	String year;
 	String comments;
+	final Context context = this;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -64,8 +70,24 @@ public class New_Semester extends Activity implements OnItemSelectedListener{
 		comments = semesterComments.getText().toString();
 		year = semesterYear.getText().toString();
 		
-		if(term.compareTo("") == 0 || year.compareTo("") == 0) {
+		if(year.compareTo("") == 0) {
+			final Dialog errorPopUp = new Dialog(context);
 			
+			errorPopUp.setCanceledOnTouchOutside(false);
+        	errorPopUp.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        	errorPopUp.setContentView(R.layout.new_semester_error);
+        	
+        	Button ok = (Button) errorPopUp.findViewById(R.id.new_semester_error_ok_button);
+        	
+        	ok.setOnClickListener(new OnClickListener () {
+
+				@Override
+				public void onClick(View v) {
+					// TODO Auto-generated method stub
+					errorPopUp.dismiss();
+				}
+        	});
+        	errorPopUp.show();
 		}
 		else {
 			Session session = Session.FALL;
