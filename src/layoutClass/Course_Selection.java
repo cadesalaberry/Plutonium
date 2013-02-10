@@ -30,7 +30,7 @@ public class Course_Selection extends Activity {
 	ListView courseList;
 	public static int coursepos;
 	int deletepos;
-	float gpa = 0;
+	double gpa = 0;
 	String tgpa;
 	
 	@Override
@@ -51,17 +51,21 @@ public class Course_Selection extends Activity {
 	 thisSemester = Data.currentSemester;
 	 courses = thisSemester.getCourses();
 	 
-	 if(courses.size() != 0)
-		 tgpa = (Float.toString(gpa));
-	 else
+	 if(courses.size() != 0) {
+		 thisSemester.computeGPA(courses);
+	 	 gpa = thisSemester.getGPA();
+	 	 tgpa = Double.toString(gpa);
+	 }
+	 else {
 		 tgpa = "N/A";
+	 }
 	 
-	 myText.setText(String.valueOf(tgpa));
+	 myText.setText(tgpa);
 	 myText2.setText(thisSemester.toString());
 	 values = new String[courses.size()];
 	 
 	 for(int i = 0; i < courses.size(); i++) {
-		 values[i] = courses.get(i).getSubject() + "      " + courses.get(i).getLetterGrade() + "  " + courses.get(i).getGP();
+		 values[i] = courses.get(i).getSubject() + "      " + courses.get(i).getLetterGrade() + "  " + courses.get(i).getAverage().getPercentage() + "%";
 	 }
 	 
 	 adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, android.R.id.text1, values);
@@ -71,6 +75,7 @@ public class Course_Selection extends Activity {
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 			// TODO Auto-generated method stub
 			Data.currentCourse = courses.get(position);
+			finish();
 			Intent intent = new Intent(getApplicationContext(), Evaluation_Selection.class);
 			startActivity(intent);
 			}
@@ -78,7 +83,6 @@ public class Course_Selection extends Activity {
 	 
 	 courseList.setAdapter(adapter);
 	 registerForContextMenu(courseList);
-	 
 	}
 	
 	public void onCreateContextMenu(ContextMenu menu, View v,ContextMenuInfo menuInfo) {  
@@ -87,22 +91,32 @@ public class Course_Selection extends Activity {
 	    deletepos = (int) info.id;
 		menu.setHeaderTitle("More");  
 		menu.add(0, v.getId(), 0, "Delete");  
+		menu.add(0, v.getId(), 0, "Edit");
 	} 
 
 	@Override  
     public boolean onContextItemSelected(MenuItem item) {  
         if(item.getTitle()=="Delete"){deleteCourse(item.getItemId());}  
+        if(item.getTitle()=="Edit") {
+        	Data.currentCourse = courses.get(deletepos);
+        	Data.editMode = true;
+    		finish();
+        	Intent intent = new Intent(getApplicationContext(), Course_Editor.class);
+        	startActivity(intent);
+        }
         else {return false;}  
     return true;  
     } 
 	
 	public void deleteCourse(int i) {
 		courses.remove(deletepos);
+		finish();
 		Intent intent = new Intent(getApplicationContext(), Course_Selection.class);
 		startActivity(intent);
 	}
 	
 	public void addCourseCourseSelection(View view) {
+		finish();
 		Intent intent = new Intent(getApplicationContext(), Course_Editor.class);
 		startActivity(intent);
 	}
@@ -111,6 +125,7 @@ public class Course_Selection extends Activity {
 		if(!courses.isEmpty()) {
 			thisSemester.computeGPA(courses);
 		}
+		finish();
 		Intent intent = new Intent(getApplicationContext(), Semester_Selection.class);
 		startActivity(intent);
 	}

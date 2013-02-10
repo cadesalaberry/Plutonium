@@ -20,6 +20,7 @@ import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Spinner;
 
 public class New_Semester extends Activity implements OnItemSelectedListener{
@@ -43,6 +44,24 @@ public class New_Semester extends Activity implements OnItemSelectedListener{
 		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		semesterTerm.setAdapter(adapter);
 		semesterTerm.setOnItemSelectedListener(this);
+		
+		if(Data.editMode) {
+			if(Data.currentSemester.getSession() == Session.FALL) {
+				semesterTerm.setSelection(1);
+			}
+			if(Data.currentSemester.getSession() == Session.WINTER) {
+				semesterTerm.setSelection(2);
+			}
+			if(Data.currentSemester.getSession() == Session.SUMMER) {
+				semesterTerm.setSelection(3);
+			}
+			
+			semesterYear = (EditText) findViewById(R.id.new_semester_year_box);
+			semesterComments = (EditText) findViewById(R.id.new_semester_comments_box);
+			
+			semesterYear.setText(Integer.toString(Data.currentSemester.getYear()));
+			semesterComments.setText(Data.currentSemester.getComments());
+		}
 	}
 	
 	@Override
@@ -58,6 +77,8 @@ public class New_Semester extends Activity implements OnItemSelectedListener{
     }
     
 	public void cancelNewSemester(View view) {
+		Data.editMode = false;
+		finish();
 		Intent intent = new Intent(getApplicationContext(), Semester_Selection.class);
 		startActivity(intent);
 	}
@@ -65,7 +86,6 @@ public class New_Semester extends Activity implements OnItemSelectedListener{
 	public void saveNewSemester(View view) {
 		semesterComments = (EditText) findViewById(R.id.new_semester_comments_box);
 		semesterYear = (EditText) findViewById(R.id.new_semester_year_box);
-		
 		
 		comments = semesterComments.getText().toString();
 		year = semesterYear.getText().toString();
@@ -94,12 +114,21 @@ public class New_Semester extends Activity implements OnItemSelectedListener{
 			if(term.compareTo("WINTER") == 0) {
 			 session = Session.WINTER;
 			}
-			else if(term.compareTo("SUMMER") == 0) {
+			if(term.compareTo("SUMMER") == 0) {
 			 session = Session.SUMMER;
 			}
+			
+			if(Data.editMode) {
+			 Data.currentSemester.setSession(session);
+			 Data.currentSemester.setYear(Integer.parseInt(year));
+			 Data.currentSemester.setComments(comments);
+			}
+			else {
 			Semester newSemester = new Semester(session, Integer.parseInt(year), comments);
 			Data.createdSemesters.add(newSemester);
-			
+			}
+			Data.editMode = false;
+			finish();
 			Intent intent = new Intent(getApplicationContext(), Semester_Selection.class);
 			startActivity(intent);
 		}

@@ -70,6 +70,7 @@ public class Semester_Selection extends Activity {
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 			// TODO Auto-generated method stub
 			Data.currentSemester = Data.createdSemesters.get(position);
+			finish();
 			Intent intent = new Intent(getApplicationContext(), Course_Selection.class);
 			startActivity(intent);
 			}
@@ -85,34 +86,48 @@ public class Semester_Selection extends Activity {
 		AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) menuInfo;
 	    deletepos = (int) info.id;
 		menu.setHeaderTitle("More");  
-		menu.add(0, v.getId(), 0, "Delete");  
+		menu.add(0, v.getId(), 0, "Delete"); 
+		menu.add(0, v.getId(), 0, "Edit");
 	} 
 
 	@Override  
     public boolean onContextItemSelected(MenuItem item) {  
-        if(item.getTitle()=="Delete"){deleteSemester(item.getItemId());}  
+        if(item.getTitle()=="Delete"){
+        	deleteSemester(item.getItemId());
+        	} 
+        if(item.getTitle()=="Edit") {
+        	Data.currentSemester = Data.createdSemesters.get(deletepos);
+        	Data.editMode = true;
+        	finish();
+        	Intent intent = new Intent(getApplicationContext(), New_Semester.class);
+        	startActivity(intent);
+        }
         else {return false;}  
     return true;  
     } 
 	
 	public void deleteSemester(int i) {
 		Data.createdSemesters.remove(deletepos);
+		finish();
 		Intent intent = new Intent(getApplicationContext(), Semester_Selection.class);
 		startActivity(intent);
 	}
 
 	
 	public void newSemester(View view) {
+		finish();
 		Intent intent = new Intent(getApplicationContext(), New_Semester.class);
 		startActivity(intent);
 	}
 	
 	public void gradesSemester(View view) {
+		finish();
 		Intent intent = new Intent(getApplicationContext(), Semester_Grade.class);
 		startActivity(intent);
 	}
 	
 	public void gradingSchemeSemesterSelection(View view) {
+		finish();
 		Intent intent = new Intent(getApplicationContext(), Grading_Scheme.class);
 		startActivity(intent);
 	}

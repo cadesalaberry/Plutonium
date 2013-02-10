@@ -27,19 +27,16 @@ public class Course {
 	}
 	*/
 	
-	private String subject;
+	private String subject = "";
 	private int courseNumber;
-	private String location;
-	private String instructorName;
-	private String instructorEmail;
+	private String location = "";
+	private String instructorName = "";
+	private String instructorEmail = "";
 	private int credits;
 	//private courseGP courseGP;
 	private double courseGP;
-	private String courseLetter;
-	private ArrayList<Evaluation> evaluations;
-	
-	Average average = new Average(subject + courseNumber + " - "
-			+ instructorName);
+	private String courseLetter = "-";
+	Average average;
 	
 	
 	/**
@@ -62,21 +59,12 @@ public class Course {
 		//this.courseGP = new courseGP();
 		this.courseGP = 0;
 		this.courseLetter= null;
-		this.evaluations = new ArrayList<Evaluation>();
-		
+//		this.average = new Average(subject + courseNumber + " - "
+//				+ instructorName);		
+		this.average = new Average(subject + " - "
+				+ instructorName);	
 	}
 	
-	public void addEvaluation(Evaluation evaluation) {
-		evaluations.add(evaluation);
-	}
-	
-	public void removeEvaluation(Evaluation evaluation) {
-		evaluations.remove(evaluation);
-	}
-	
-	public ArrayList<Evaluation> getEvaluations() {
-		return evaluations;
-	}
 	
 	public void setCourseGP(String letterValue){
 //		if(this.getLetterGrade().equals(letterValue)){
@@ -114,8 +102,16 @@ public class Course {
 		return this.credits;
 	}
 	
+	public void setCredit(int credits) {
+		this.credits = credits;
+	}
+	
 	public String getInstructorName() {
 		return this.instructorName;
+	}
+	
+	public void setInstructorName(String instructorName) {
+		this.instructorName = instructorName;
 	}
 
 	public Average getAverage() {
@@ -126,19 +122,28 @@ public class Course {
 		return this.instructorEmail;
 	}
 	
+	public void setInstructorEmail(String instructorEmail) {
+		this.instructorEmail = instructorEmail;
+	}
+	
 	public String getLocation(){
 		return this.location;
+	}
+	
+	public void setLocation(String location) {
+		this.location = location;
 	}
 	
 	public String getSubject() {
 		return this.subject;
 	}
 	
+	public void setSubject(String subject) {
+		this.subject = subject;
+	}
+	
 	@Deprecated
 	public String getCourseCode() {
 		return this.subject + this.courseNumber;
 	}
-	
-	
-
 }

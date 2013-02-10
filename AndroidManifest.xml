@@ -6,6 +6,7 @@
     <uses-sdk
         android:minSdkVersion="14"
         android:targetSdkVersion="15" />
+    
 
     <application
         android:allowBackup="true"
@@ -26,6 +27,10 @@
         </activity>
         <activity android:name="layoutClass.Evaluation_Editor"></activity>
         <activity android:name="layoutClass.Evaluation_Selection"></activity>
+        
+        
+        
     </application>
+    
 
 </manifest>

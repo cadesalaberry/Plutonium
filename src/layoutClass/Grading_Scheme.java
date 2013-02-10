@@ -118,6 +118,7 @@ public class Grading_Scheme extends ListActivity implements OnItemSelectedListen
 	}
 	
 	public void backGradingScheme(View view) {
+		finish();
 		Intent intent = new Intent(getApplicationContext(), Semester_Selection.class);
 		startActivity(intent);
 	}

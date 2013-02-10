@@ -12,6 +12,11 @@ public class Average extends Grade {
 
 	Average(String name) {
 		super(name);
+		this.breakdown = new ArrayList<Grade>();
+	}
+	
+	public ArrayList<Grade> getGrades() {
+		return this.breakdown;
 	}
 
 	public void addGrade(Grade grade) {

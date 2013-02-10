@@ -8,7 +8,7 @@ public class Semester {
 	private Session session;
 	private ArrayList<Course> courses;
 	private String title;
-	private String comments;
+	private String comments = "";
 	private double gpaValue;
 	
 	public Semester(Session session, int year ,String comment) {
@@ -46,6 +46,10 @@ public class Semester {
 	public Session getSession() {
 		return session;
 	}
+	
+	public void setSession(Session session) {
+		this.session = session;
+	}
 
 	/**
 	 * Gets the year of the current semester.
@@ -56,6 +60,10 @@ public class Semester {
 		return year;
 	}
 	
+	public void setYear(int year) {
+		this.year = year;
+	}
+	
 	/**
 	 * Gets the comments for the current semester.
 	 * 
@@ -63,6 +71,10 @@ public class Semester {
 	 */
 	public String getComments(){
 		return this.comments;
+	}
+	
+	public void setComments(String comments) {
+		this.comments = comments;
 	}
 	
 	/**
@@ -107,5 +119,4 @@ public class Semester {
 		this.gpaValue = termGPA;
 		return termGPA;
 	}
-	
 }
