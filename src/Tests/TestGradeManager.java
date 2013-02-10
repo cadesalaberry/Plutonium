@@ -1,5 +1,7 @@
-import java.util.ArrayList;
+package Tests;
 
+import java.util.ArrayList;
+import structures.*;
 
 import static org.junit.Assert.*;
 
@@ -90,11 +92,11 @@ public class TestGradeManager{
 		Grade grade2 = new Grade("Midterm", "Midterm", 20, 30, 30, "none");
 		Grade grade3 = new Grade("Final", "Final", 27, 50, 50, "none");
 		
-		course1.average.addGrade(grade1);
-		course1.average.addGrade(grade2);
-		course1.average.addGrade(grade3);
+		course1.getAverage().addGrade(grade1);
+		course1.getAverage().addGrade(grade2);
+		course1.getAverage().addGrade(grade3);
 
-		assertEquals((15+20+27), course1.average.getPercentage(), 0.01);
+		assertEquals((15+20+27), course1.getAverage().getPercentage(), 0.01);
 		
 	}
 
