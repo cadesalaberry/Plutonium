@@ -10,9 +10,9 @@ import java.util.Map;
  */
 public class MinervaSuggestions {
 
-	private static Map<String, String> sessionMap = new HashMap<>();
-	private static Map<String, String> subjectsMap = new HashMap<>();
-	private static Map<String, String> facultiesMap = new HashMap<>();
+	private static Map<String, String> sessionMap = new HashMap<String,String>();
+	private static Map<String, String> subjectsMap = new HashMap<String,String>();
+	private static Map<String, String> facultiesMap = new HashMap<String,String>();
 
 	public MinervaSuggestions() throws Exception {
 		/**
