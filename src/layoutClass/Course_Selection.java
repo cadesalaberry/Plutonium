@@ -65,7 +65,14 @@ public class Course_Selection extends Activity {
 	 values = new String[courses.size()];
 	 
 	 for(int i = 0; i < courses.size(); i++) {
-		 values[i] = courses.get(i).getSubject() + "      " + courses.get(i).getLetterGrade() + "  " + courses.get(i).getAverage().getPercentage() + "%";
+		 if(courses.get(i).getAverage().getGrades().size() > 0) {
+			 values[i] = courses.get(i).getSubject() + "	Letter:" + courses.get(i).getLetterGrade() + "  " 
+					 + courses.get(i).getAverage().getPercentage() + "%";
+		 }
+		 else {
+			 values[i] = courses.get(i).getSubject() + "    Letter:" + courses.get(i).getLetterGrade() + "  " 
+					 + "-" + "%";
+		 }
 	 }
 	 
 	 adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, android.R.id.text1, values);

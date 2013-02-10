@@ -18,7 +18,7 @@
         android:textSize="12dp" />
 
     <ListView
-        android:id="@+id/android:list"
+        android:id="@+id/grading_scheme_list"
         android:layout_width="match_parent"
         android:layout_height="fill_parent"
         android:layout_alignLeft="@+id/grading_scheme_letter_grade_text"
@@ -57,7 +57,7 @@
         android:id="@+id/grading_scheme_grade_points_box"
         android:layout_width="40dp"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/android:list"
+        android:layout_above="@+id/grading_scheme_list"
         android:layout_alignTop="@+id/grading_scheme_grade_points_text"
         android:layout_toRightOf="@+id/grading_scheme_grade_points_text"
         android:background="#FFFFFF"

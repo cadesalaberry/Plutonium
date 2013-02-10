@@ -44,8 +44,7 @@ public class GPA {
 		
 	}
 	
-	
-	
+
 	public void addGPA(GPA gpa){
 		Data.gpaValue.add(gpa);
 	}

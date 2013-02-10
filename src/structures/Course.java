@@ -6,26 +6,6 @@ package structures;
 import java.util.ArrayList;
 
 public class Course {
-
-	/*
-	private class courseGP{
-		private double courseGP = 0;
-		private String courseLetter= null;
-		
-		public void setLetterGrade(String letter){
-			this.courseLetter = letter;
-		}
-		public void setGP(double gp){
-			this.courseGP = gp;
-		}
-		public String getLetterGrade(){
-			return this.courseLetter;
-		}
-		public double getGP(){
-			return this.courseGP;
-		}
-	}
-	*/
 	
 	private String subject = "";
 	private int courseNumber;
@@ -35,7 +15,7 @@ public class Course {
 	private int credits;
 	//private courseGP courseGP;
 	private double courseGP;
-	private String courseLetter = "-";
+	private String courseLetter;
 	Average average;
 	
 	
@@ -58,7 +38,7 @@ public class Course {
 		this.instructorEmail = email;
 		//this.courseGP = new courseGP();
 		this.courseGP = 0;
-		this.courseLetter= null;
+		this.courseLetter= "-";
 //		this.average = new Average(subject + courseNumber + " - "
 //				+ instructorName);		
 		this.average = new Average(subject + " - "

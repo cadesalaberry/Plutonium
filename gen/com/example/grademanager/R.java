@@ -19,8 +19,8 @@ public final class R {
         public static final int ic_launcher=0x7f020000;
     }
     public static final class id {
-        public static final int CGPA_Box=0x7f070040;
-        public static final int CGPA_Text=0x7f07003f;
+        public static final int CGPA_Box=0x7f070041;
+        public static final int CGPA_Text=0x7f070040;
         public static final int Semester_Box=0x7f070017;
         public static final int TGPA_Box=0x7f070012;
         public static final int TGPA_Text=0x7f070016;
@@ -60,30 +60,31 @@ public final class R {
         public static final int evaluation_selection_add_button=0x7f070026;
         public static final int evaluation_selection_back_button=0x7f070027;
         public static final int evaluation_selection_list=0x7f070025;
-        public static final int grading_scheme_back_button=0x7f07002d;
-        public static final int grading_scheme_error_ok_button=0x7f07002e;
-        public static final int grading_scheme_grade_points_box=0x7f070029;
-        public static final int grading_scheme_grade_points_text=0x7f07002b;
+        public static final int grading_scheme_back_button=0x7f07002e;
+        public static final int grading_scheme_error_ok_button=0x7f07002f;
+        public static final int grading_scheme_grade_points_box=0x7f07002a;
+        public static final int grading_scheme_grade_points_text=0x7f07002c;
         public static final int grading_scheme_letter_grade_text=0x7f070028;
-        public static final int grading_scheme_ok_button=0x7f07002c;
-        public static final int letter_grades_spinner=0x7f07002a;
-        public static final int mylist=0x7f070038;
+        public static final int grading_scheme_list=0x7f070029;
+        public static final int grading_scheme_ok_button=0x7f07002d;
+        public static final int letter_grades_spinner=0x7f07002b;
+        public static final int mylist=0x7f070039;
         public static final int new_semester_button=0x7f070013;
-        public static final int new_semester_cancel_button=0x7f070030;
-        public static final int new_semester_comments_box=0x7f070036;
-        public static final int new_semester_comments_text=0x7f070035;
-        public static final int new_semester_error_ok_button=0x7f070037;
-        public static final int new_semester_save_button=0x7f070034;
-        public static final int new_semester_spinner=0x7f070031;
-        public static final int new_semester_term_text=0x7f07002f;
-        public static final int new_semester_year_box=0x7f070033;
-        public static final int new_semester_year_text=0x7f070032;
-        public static final int semester_grades_back_button=0x7f070039;
-        public static final int semester_grades_button=0x7f07003c;
-        public static final int semester_grades_grading_scheme=0x7f07003a;
-        public static final int semester_selection_grading_scheme_button=0x7f07003e;
-        public static final int semester_selection_list=0x7f07003b;
-        public static final int semester_settings_button=0x7f07003d;
+        public static final int new_semester_cancel_button=0x7f070031;
+        public static final int new_semester_comments_box=0x7f070037;
+        public static final int new_semester_comments_text=0x7f070036;
+        public static final int new_semester_error_ok_button=0x7f070038;
+        public static final int new_semester_save_button=0x7f070035;
+        public static final int new_semester_spinner=0x7f070032;
+        public static final int new_semester_term_text=0x7f070030;
+        public static final int new_semester_year_box=0x7f070034;
+        public static final int new_semester_year_text=0x7f070033;
+        public static final int semester_grades_back_button=0x7f07003a;
+        public static final int semester_grades_button=0x7f07003d;
+        public static final int semester_grades_grading_scheme=0x7f07003b;
+        public static final int semester_selection_grading_scheme_button=0x7f07003f;
+        public static final int semester_selection_list=0x7f07003c;
+        public static final int semester_settings_button=0x7f07003e;
     }
     public static final class layout {
         public static final int course_editor=0x7f030000;

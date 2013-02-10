@@ -109,8 +109,10 @@ public class Course_Editor extends Activity  {
 					break;
 					}
 				}*/
+			course.setCourseGP(letter);
 			Data.currentSemester.addCourse(course);
 			}
+			
 			
 			Data.editMode = false;
 			finish();

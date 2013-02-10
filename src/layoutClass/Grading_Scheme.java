@@ -13,30 +13,39 @@ import android.app.ListActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.ContextMenu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
+import android.view.ContextMenu.ContextMenuInfo;
 import android.view.View.OnClickListener;
 import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.AdapterView.OnItemSelectedListener;
 
-public class Grading_Scheme extends ListActivity implements OnItemSelectedListener{
+public class Grading_Scheme extends Activity implements OnItemSelectedListener{
 	Spinner letterGradesSpinner;
 	ArrayAdapter<CharSequence> adapter1;
+	ListView schemeList;
 	String[] values;
 	ArrayAdapter<String> adapter2;
 	String letterGrade;
 	EditText gradePoint;
 	final Context context = this;
+	int deletepos;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 		setContentView(R.layout.grading_scheme);
+		
+		schemeList = (ListView) findViewById(R.id.grading_scheme_list);
 		
 		gradePoint = (EditText) findViewById(R.id.grading_scheme_grade_points_box);
 		gradePoint.setOnClickListener( new OnClickListener() {
@@ -61,8 +70,9 @@ public class Grading_Scheme extends ListActivity implements OnItemSelectedListen
 		for(int i = 0; i < Data.gpaValue.size(); i++) {
 			values[i] = Data.gpaValue.get(i).getLetterGrade() + " " + Data.gpaValue.get(i).getGradePoint();
 		}
-		adapter2 = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, values);
-		setListAdapter(adapter2);
+		adapter2 = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, android.R.id.text1, values);
+		schemeList.setAdapter(adapter2);
+		registerForContextMenu(schemeList);
 	}
 	
 	@Override
@@ -77,6 +87,31 @@ public class Grading_Scheme extends ListActivity implements OnItemSelectedListen
 		// TODO Auto-generated method stub
 		
 	}
+	
+	public void onCreateContextMenu(ContextMenu menu, View v,ContextMenuInfo menuInfo) {  
+		super.onCreateContextMenu(menu, v, menuInfo);  
+		AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) menuInfo;
+	    deletepos = (int) info.id;
+		menu.setHeaderTitle("More");  
+		menu.add(0, v.getId(), 0, "Delete");  
+	} 
+
+	@Override  
+    public boolean onContextItemSelected(MenuItem item) {  
+        if(item.getTitle()=="Delete") {
+        
+        	Data.gpaValue.remove(deletepos);
+        	values = new String[Data.gpaValue.size()];
+		
+        	for(int i = 0; i < Data.gpaValue.size(); i++) {
+        		values[i] = Data.gpaValue.get(i).getLetterGrade() + " " + Data.gpaValue.get(i).getGradePoint();
+        	}
+        	adapter2 = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, values);
+        	schemeList.setAdapter(adapter2);
+			}  
+        else {return false;}  
+    return true;  
+    } 
 	
 	public void saveGradingScheme(View view) {
 		String gradePointValue;
@@ -113,7 +148,7 @@ public class Grading_Scheme extends ListActivity implements OnItemSelectedListen
 				values[i] = Data.gpaValue.get(i).getLetterGrade() + " " + Data.gpaValue.get(i).getGradePoint();
 			}
 			adapter2 = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, values);
-			setListAdapter(adapter2);
+			schemeList.setAdapter(adapter2);
 		}
 	}
 	

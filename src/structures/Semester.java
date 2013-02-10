@@ -111,9 +111,9 @@ public class Semester {
 			}
 			//need to add checks for values that dont make sense
 			totalCredit += semesterCourses.get(i).getCredit();
+			gpTemp += (semesterCourses.get(i).getGP() * semesterCourses.get(i).getCredit());
 			//int temp = Data.gpaValue.indexOf(semesterCourses.get(i).getLetterGrade());
 			//gpTemp += (Data.gpaValue.get(temp).getGradePoint() * semesterCourses.get(i).getCredit());
-			gpTemp += (semesterCourses.get(i).getGP() * semesterCourses.get(i).getCredit());
 		}
 		termGPA = gpTemp/totalCredit;
 		this.gpaValue = termGPA;
