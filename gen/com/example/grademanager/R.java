@@ -24,6 +24,7 @@ public final class R {
         public static final int Semester_Box=0x7f070017;
         public static final int TGPA_Box=0x7f070012;
         public static final int TGPA_Text=0x7f070016;
+        public static final int abouttxt=0x7f070039;
         public static final int course_editor_cancel=0x7f070001;
         public static final int course_editor_course_location_box=0x7f070005;
         public static final int course_editor_course_location_text=0x7f070004;
@@ -68,7 +69,6 @@ public final class R {
         public static final int grading_scheme_list=0x7f070029;
         public static final int grading_scheme_ok_button=0x7f07002d;
         public static final int letter_grades_spinner=0x7f07002b;
-        public static final int mylist=0x7f070039;
         public static final int new_semester_button=0x7f070013;
         public static final int new_semester_cancel_button=0x7f070031;
         public static final int new_semester_comments_box=0x7f070037;
@@ -79,9 +79,9 @@ public final class R {
         public static final int new_semester_term_text=0x7f070030;
         public static final int new_semester_year_box=0x7f070034;
         public static final int new_semester_year_text=0x7f070033;
-        public static final int semester_grades_back_button=0x7f07003a;
+        public static final int semester_grades_back_button=0x7f07003b;
         public static final int semester_grades_button=0x7f07003d;
-        public static final int semester_grades_grading_scheme=0x7f07003b;
+        public static final int semester_grades_grading_scheme=0x7f07003a;
         public static final int semester_selection_grading_scheme_button=0x7f07003f;
         public static final int semester_selection_list=0x7f07003c;
         public static final int semester_settings_button=0x7f07003e;
