@@ -52,13 +52,20 @@ public class Semester_Selection extends Activity {
 			gpa = gpa/Data.createdSemesters.size();
 			cgpa = (Float.toString(gpa));
 		}
-		else
+		else {
 			cgpa = "N/A";
+		}
 		
 		myText.setText(String.valueOf(cgpa));
 		values = new String[Data.createdSemesters.size()];
 		
 		for(int i = 0; i < Data.createdSemesters.size(); i++) {
+			if(Data.createdSemesters.get(i).getCourses().size() != 0) {
+				for(int j = 0; j < Data.createdSemesters.get(i).getCourses().size(); j++) {
+				Data.createdSemesters.get(i).getCourses().get(j).setCourseGP(Data.createdSemesters.get(i).getCourses().get(j).getLetterGrade());
+				}
+				Data.createdSemesters.get(i).computeGPA(Data.createdSemesters.get(i).getCourses());
+			}
 			semesterGPA = "  TGPA:" + Data.createdSemesters.get(i).getGPA();
 			values[i] = Data.createdSemesters.get(i).getSession().toString() + " " + Data.createdSemesters.get(i).getYear() 
 					+ semesterGPA;

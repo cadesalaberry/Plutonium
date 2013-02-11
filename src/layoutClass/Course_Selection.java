@@ -129,9 +129,6 @@ public class Course_Selection extends Activity {
 	}
 	
 	public void backCourseSelection(View view) {
-		if(!courses.isEmpty()) {
-			thisSemester.computeGPA(courses);
-		}
 		finish();
 		Intent intent = new Intent(getApplicationContext(), Semester_Selection.class);
 		startActivity(intent);

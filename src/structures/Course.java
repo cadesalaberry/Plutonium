@@ -51,22 +51,25 @@ public class Course {
 //			return;
 //		}
 		
-		this.setLetterGrade(letterValue);
+//		this.setLetterGrade(letterValue);
+		this.courseLetter = letterValue;
 		
 		for(int i =0;i<Data.gpaValue.size();i++){
 			if(Data.gpaValue.isEmpty()){
 				break;
 			}
 			else if(Data.gpaValue.get(i).getLetterGrade().equals(letterValue)){
-				this.setGP(Data.gpaValue.get(i).getGradePoint());
+				//this.setGP(Data.gpaValue.get(i).getGradePoint());
+				this.courseGP = Data.gpaValue.get(i).getGradePoint();
 			}
-		}
-		
+		}	
 	}
-			
+	
+	@Deprecated
 	public void setLetterGrade(String letter){
 		this.courseLetter = letter;
 	}
+	@Deprecated
 	public void setGP(double gp){
 		this.courseGP = gp;
 	}
