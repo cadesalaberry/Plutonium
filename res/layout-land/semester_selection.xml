@@ -1,0 +1,88 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000" >
+
+    <ListView
+        android:id="@+id/semester_selection_list"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="70dp"
+        android:background="#FFFFFF"
+        android:divider="#000000"
+        android:dividerHeight="1dp" >
+    </ListView>
+
+    <Button
+        android:id="@+id/new_semester_button"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/semester_selection_list"
+        android:layout_marginLeft="200dp"
+        android:onClick="newSemester"
+        android:text="New"
+        android:textColor="#FFFFFF" />
+
+
+    <Button
+        android:id="@+id/semester_grades_button"
+        android:layout_width="83dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/semester_selection_list"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="200dp"
+        android:onClick="gradesSemester"
+        android:text="About"
+        android:textColor="#FFFFFF" />
+
+
+
+    <Button
+        android:id="@+id/semester_settings_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/semester_grades_button"
+        android:layout_alignBottom="@+id/semester_grades_button"
+        android:layout_marginLeft="80dp"
+        android:text="Settings"
+        android:textColor="#FFFFFF" />
+
+
+    <Button
+        android:id="@+id/semester_selection_grading_scheme_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/semester_settings_button"
+        android:layout_alignRight="@+id/semester_selection_list"
+        android:onClick="gradingSchemeSemesterSelection"
+        android:text="Grading Scheme"
+        android:textColor="#FFFFFF" />
+
+   <TextView
+        android:id="@+id/CGPA_Text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/new_semester_button"
+        android:layout_alignBottom="@+id/new_semester_button"
+        android:layout_alignParentLeft="true"
+        android:layout_marginRight="160dp"
+        android:layout_marginLeft="5dp"
+        android:text="Cumulative GPA"
+        android:textColor="#FFFFFF" 
+        android:textSize="20dp" />
+
+    <TextView
+        android:id="@+id/CGPA_Box"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/new_semester_button"
+        android:layout_alignBottom="@+id/new_semester_button"
+        android:layout_marginLeft="160dp"
+        android:layout_toLeftOf="@+id/new_semester_button"
+        android:background="#FFFFFF"
+        android:ems="10" />
+
+</RelativeLayout>

@@ -1,0 +1,190 @@
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000" >
+
+    <Button
+        android:id="@+id/course_editor_save"
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="20dp"
+        android:onClick="saveCourse"
+        android:text="Save"
+        android:textColor="#FFFFFF" />
+
+    <Button
+        android:id="@+id/course_editor_cancel"
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="15dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="15dp"
+        android:onClick="cancelCourseEditor"
+        android:text="Cancel"
+        android:textColor="#FFFFFF" />
+
+    <TextView
+        android:id="@+id/course_editor_course_title_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="15dp"
+        android:text="Course Subject"
+        android:textColor="@android:color/white"
+        android:textSize="20dp" />
+
+    <EditText
+        android:id="@+id/course_editor_course_title_box"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/course_editor_course_title_text"
+        android:layout_below="@+id/course_editor_course_title_text"
+        android:layout_marginBottom="5dp"
+        android:background="#FFFFFF"
+        android:ems="10"
+        android:imeOptions="actionDone"
+        android:inputType="textNoSuggestions"
+        android:textColor="@android:color/black"
+        android:textSize="16dp" >
+    </EditText>
+
+    <TextView
+        android:id="@+id/course_editor_course_location_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/course_editor_course_title_box"
+        android:layout_below="@+id/course_editor_course_title_box"
+        android:layout_marginBottom="5dp"
+        android:text="Location"
+        android:textColor="@android:color/white"
+        android:textSize="20dp" />
+
+    <EditText
+        android:id="@+id/course_editor_course_location_box"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/course_editor_course_location_text"
+        android:layout_below="@+id/course_editor_course_location_text"
+        android:layout_marginBottom="5dp"
+        android:background="#FFFFFF"
+        android:ems="10"
+        android:imeOptions="actionDone"
+        android:inputType="textNoSuggestions"
+        android:textColor="@android:color/black"
+        android:textSize="16dp" >
+    </EditText>
+
+    <TextView
+        android:id="@+id/course_editor_professor_email_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/course_editor_name_of_professor_box"
+        android:layout_below="@+id/course_editor_name_of_professor_box"
+        android:layout_marginBottom="5dp"
+        android:text="Professor E-mail"
+        android:textColor="@android:color/white"
+        android:textSize="20dp" />
+
+    <EditText
+        android:id="@+id/course_editor_professor_email_box"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/course_editor_professor_email_text"
+        android:layout_below="@+id/course_editor_professor_email_text"
+        android:layout_marginBottom="10dp"
+        android:background="#FFFFFF"
+        android:ems="10"
+        android:imeOptions="actionDone"
+        android:inputType="textNoSuggestions"
+        android:textColor="@android:color/black"
+        android:textSize="16dp" />
+
+
+
+    <EditText
+        android:id="@+id/course_editor_credits_box"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/course_editor_credits_text"
+        android:layout_alignRight="@+id/course_editor_credits_text"
+        android:layout_below="@+id/course_editor_credits_text"
+        android:background="#FFFFFF"
+        android:ems="10"
+        android:imeOptions="actionDone"
+        android:inputType="number"
+        android:textColor="@android:color/black"
+        android:textSize="16dp" />
+
+    <EditText
+        android:id="@+id/course_editor_temp_letter_box"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/course_editor_credits_box"
+        android:layout_alignBottom="@+id/course_editor_credits_box"
+        android:layout_alignLeft="@+id/course_editor_temp_letter_text"
+        android:layout_alignRight="@+id/course_editor_temp_letter_text"
+        android:background="#FFFFFF"
+        android:ems="10"
+        android:imeOptions="actionDone"
+        android:inputType="textNoSuggestions"
+        android:textColor="@android:color/black"
+        android:textSize="16dp" >
+
+        <requestFocus />
+    </EditText>
+
+    <EditText
+        android:id="@+id/course_editor_name_of_professor_box"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/course_editor_cancel"
+        android:layout_below="@+id/course_editor_course_title_text"
+        android:background="#FFFFFF"
+        android:ems="10"
+        android:imeOptions="actionDone"
+        android:inputType="textNoSuggestions"
+        android:textColor="@android:color/black"
+        android:textSize="16dp" />
+
+    <TextView
+        android:id="@+id/course_editor_name_of_professor_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/course_editor_name_of_professor_box"
+        android:layout_alignLeft="@+id/course_editor_name_of_professor_box"
+        android:text="Professor Name"
+        android:textColor="@android:color/white"
+        android:textSize="20dp" />
+
+    <TextView
+        android:id="@+id/course_editor_credits_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/course_editor_course_location_box"
+        android:layout_below="@+id/course_editor_course_location_box"
+        android:text="Credits"
+        android:textColor="@android:color/white"
+        android:textSize="20dp" />
+
+    <TextView
+        android:id="@+id/course_editor_temp_letter_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/course_editor_temp_letter_box"
+        android:layout_toRightOf="@+id/course_editor_course_title_text"
+        android:text="Grade Letter"
+        android:textColor="@android:color/white"
+        android:textSize="20dp" />
+
+</RelativeLayout>
