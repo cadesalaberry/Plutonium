@@ -1,5 +1,6 @@
 package layoutClass;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 import structures.Data;
@@ -44,19 +45,6 @@ public class Semester_Selection extends Activity {
 		Data.dataLoaded = true;
 		}
 		
-		
-		if(Data.createdSemesters.size() != 0) {
-			for(int i = 0; i < Data.createdSemesters.size(); i++) {
-				gpa = gpa + (float) Data.createdSemesters.get(i).getGPA();
-			}
-			gpa = gpa/Data.createdSemesters.size();
-			cgpa = (Float.toString(gpa));
-		}
-		else {
-			cgpa = "N/A";
-		}
-		
-		myText.setText(String.valueOf(cgpa));
 		values = new String[Data.createdSemesters.size()];
 		
 		for(int i = 0; i < Data.createdSemesters.size(); i++) {
@@ -83,6 +71,21 @@ public class Semester_Selection extends Activity {
 			}
 		});
 		
+		if(Data.createdSemesters.size() != 0) {
+			for(int i = 0; i < Data.createdSemesters.size(); i++) {
+				gpa = gpa + (float) Data.createdSemesters.get(i).getGPA();
+			}
+			gpa = gpa/Data.createdSemesters.size();
+			
+			//DecimalFormat decFormat = new DecimalFormat("#.##");
+		 	//cgpa = decFormat.format(gpa);
+		 	
+			cgpa = (Float.toString(gpa));
+		}
+		else {
+			cgpa = "N/A";
+		}
+		myText.setText(String.valueOf(cgpa));
 		semesterList.setAdapter(adapter);
 		registerForContextMenu(semesterList);
 	}

@@ -9,7 +9,6 @@ import structures.Semester;
 import com.example.grademanager.R;
 
 import android.app.Activity;
-import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.ContextMenu;
@@ -54,6 +53,11 @@ public class Course_Selection extends Activity {
 	 if(courses.size() != 0) {
 		 thisSemester.computeGPA(courses);
 	 	 gpa = thisSemester.getGPA();
+	 	 
+	 	 //gpa double value truncation
+	 	 
+	 	//DecimalFormat decFormat = new DecimalFormat("#.##");
+	 	//tgpa = decFormat.format(gpa);
 	 	 tgpa = Double.toString(gpa);
 	 }
 	 else {

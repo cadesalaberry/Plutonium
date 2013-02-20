@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="evaluation_type_array">
-        <item> </item>
         <item>ASSIGNMENT</item>
         <item>QUIZ</item>
         <item>MIDTERM</item>

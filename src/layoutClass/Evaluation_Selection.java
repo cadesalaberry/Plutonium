@@ -46,7 +46,7 @@ public class Evaluation_Selection extends Activity {
 		 for(int i = 0; i < evals.size(); i++) {
 			
 			 values[i] = evals.get(i).getName() + "   " + "Grade: " + evals.get(i).getValue() 
-					 + " Weight: " + evals.get(i).getCoefficient();
+					 + " Weight: " + (int) evals.get(i).getCoefficient() + " %";
 		 }
 		
 		adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, android.R.id.text1, values);

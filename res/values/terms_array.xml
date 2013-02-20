@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="terms_array">
-        <item> </item>
         <item>FALL</item>
         <item>WINTER</item>
         <item>SUMMER</item>

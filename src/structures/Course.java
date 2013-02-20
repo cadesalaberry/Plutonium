@@ -16,7 +16,7 @@ public class Course {
 	//private courseGP courseGP;
 	private double courseGP;
 	private String courseLetter;
-	private Average average;
+	Average average;
 	
 	
 	/**

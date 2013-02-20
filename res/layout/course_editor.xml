@@ -146,19 +146,14 @@
         android:textColor="@android:color/white"
         android:textSize="20dp" />
 
-    <EditText
-        android:id="@+id/course_editor_credits_box"
+    <Spinner
+        android:id="@+id/course_editor_credits_spinner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/course_editor_credits_text"
         android:layout_alignRight="@+id/course_editor_credits_text"
         android:layout_below="@+id/course_editor_credits_text"
-        android:background="#FFFFFF"
-        android:ems="10"
-        android:imeOptions="actionDone"
-        android:inputType="number"
-        android:textColor="@android:color/black"
-        android:textSize="16dp" />
+        android:background="#FFFFFF" />
 
     <TextView
         android:id="@+id/course_editor_credits_text"
@@ -185,18 +180,14 @@
         android:id="@+id/course_editor_temp_letter_box"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/course_editor_credits_box"
-        android:layout_alignBottom="@+id/course_editor_credits_box"
         android:layout_alignLeft="@+id/course_editor_temp_letter_text"
-        android:layout_alignRight="@+id/course_editor_cancel"
+        android:layout_alignRight="@+id/course_editor_temp_letter_text"
+        android:layout_below="@+id/course_editor_credits_text"
         android:background="#FFFFFF"
         android:ems="10"
         android:imeOptions="actionDone"
         android:inputType="textNoSuggestions"
         android:textColor="@android:color/black"
-        android:textSize="16dp" >
-
-        <requestFocus />
-    </EditText>
+        android:textSize="16dp" />
 
 </RelativeLayout>

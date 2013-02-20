@@ -64,6 +64,7 @@ public class Grading_Scheme extends Activity implements OnItemSelectedListener{
 		adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		letterGradesSpinner.setAdapter(adapter1);
 		letterGradesSpinner.setOnItemSelectedListener(this);
+		letterGradesSpinner.setSelection(0);
 		
 		values = new String[Data.gpaValue.size()];
 		
@@ -99,8 +100,8 @@ public class Grading_Scheme extends Activity implements OnItemSelectedListener{
 	@Override  
     public boolean onContextItemSelected(MenuItem item) {  
         if(item.getTitle()=="Delete") {
-        
         	Data.gpaValue.remove(deletepos);
+        	
         	values = new String[Data.gpaValue.size()];
 		
         	for(int i = 0; i < Data.gpaValue.size(); i++) {
@@ -119,7 +120,7 @@ public class Grading_Scheme extends Activity implements OnItemSelectedListener{
 		gradePoint = (EditText) findViewById(R.id.grading_scheme_grade_points_box);
 		gradePointValue = gradePoint.getText().toString();
 		
-		if(gradePointValue.compareTo("") == 0) {
+		if(gradePointValue.compareTo("") == 0 || Double.parseDouble(gradePointValue) > 5 ) {
 			final Dialog errorPopUp = new Dialog(context);
 			
 			errorPopUp.setCanceledOnTouchOutside(false);

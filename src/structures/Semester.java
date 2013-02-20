@@ -1,5 +1,6 @@
 package structures;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class Semester {
@@ -104,6 +105,7 @@ public class Semester {
 		double totalCredit = 0;
 		double gpTemp = 0;
 		double termGPA = 0;
+		String gradePointAverage;
 		
 		for(int i=0;i<semesterCourses.size();i++){
 			if(semesterCourses.isEmpty()){
@@ -116,7 +118,9 @@ public class Semester {
 			//gpTemp += (Data.gpaValue.get(temp).getGradePoint() * semesterCourses.get(i).getCredit());
 		}
 		termGPA = gpTemp/totalCredit;
-		this.gpaValue = termGPA;
-		return termGPA;
+		DecimalFormat decFormat = new DecimalFormat("#.##");
+	 	gradePointAverage = decFormat.format(termGPA);
+		this.gpaValue = Double.parseDouble(gradePointAverage);
+		return Double.parseDouble(gradePointAverage);
 	}
 }

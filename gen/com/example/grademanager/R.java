@@ -9,9 +9,12 @@ package com.example.grademanager;
 
 public final class R {
     public static final class array {
-        public static final int evaluation_type_array=0x7f040000;
-        public static final int letter_grades_array=0x7f040001;
-        public static final int terms_array=0x7f040002;
+        public static final int credits_array=0x7f040000;
+        public static final int evaluation_type_array=0x7f040001;
+        public static final int letter_grades_array=0x7f040002;
+        public static final int percentage_array=0x7f040003;
+        public static final int terms_array=0x7f040004;
+        public static final int year_array=0x7f040005;
     }
     public static final class attr {
     }
@@ -24,13 +27,12 @@ public final class R {
         public static final int Semester_Box=0x7f070017;
         public static final int TGPA_Box=0x7f070012;
         public static final int TGPA_Text=0x7f070016;
-        public static final int abouttxt=0x7f070039;
         public static final int course_editor_cancel=0x7f070001;
         public static final int course_editor_course_location_box=0x7f070005;
         public static final int course_editor_course_location_text=0x7f070004;
         public static final int course_editor_course_title_box=0x7f070003;
         public static final int course_editor_course_title_text=0x7f070002;
-        public static final int course_editor_credits_box=0x7f07000b;
+        public static final int course_editor_credits_spinner=0x7f07000b;
         public static final int course_editor_credits_text=0x7f07000a;
         public static final int course_editor_error_ok_button=0x7f070010;
         public static final int course_editor_name_of_professor_box=0x7f070007;
@@ -56,7 +58,7 @@ public final class R {
         public static final int evaluation_editor_ok_button=0x7f070018;
         public static final int evaluation_editor_spinner=0x7f07001d;
         public static final int evaluation_editor_type_text=0x7f07001c;
-        public static final int evaluation_editor_weight_box=0x7f07001f;
+        public static final int evaluation_editor_weight_spinner=0x7f07001f;
         public static final int evaluation_editor_weight_text=0x7f07001e;
         public static final int evaluation_selection_add_button=0x7f070026;
         public static final int evaluation_selection_back_button=0x7f070027;
@@ -69,6 +71,7 @@ public final class R {
         public static final int grading_scheme_list=0x7f070029;
         public static final int grading_scheme_ok_button=0x7f07002d;
         public static final int letter_grades_spinner=0x7f07002b;
+        public static final int mylist=0x7f070039;
         public static final int new_semester_button=0x7f070013;
         public static final int new_semester_cancel_button=0x7f070031;
         public static final int new_semester_comments_box=0x7f070037;
@@ -77,11 +80,11 @@ public final class R {
         public static final int new_semester_save_button=0x7f070035;
         public static final int new_semester_spinner=0x7f070032;
         public static final int new_semester_term_text=0x7f070030;
-        public static final int new_semester_year_box=0x7f070034;
+        public static final int new_semester_year_spinner=0x7f070034;
         public static final int new_semester_year_text=0x7f070033;
-        public static final int semester_grades_back_button=0x7f07003b;
+        public static final int semester_grades_back_button=0x7f07003a;
         public static final int semester_grades_button=0x7f07003d;
-        public static final int semester_grades_grading_scheme=0x7f07003a;
+        public static final int semester_grades_grading_scheme=0x7f07003b;
         public static final int semester_selection_grading_scheme_button=0x7f07003f;
         public static final int semester_selection_list=0x7f07003c;
         public static final int semester_settings_button=0x7f07003e;
