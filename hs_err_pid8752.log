@@ -1,7 +1,7 @@
 #
 # A fatal error has been detected by the Java Runtime Environment:
 #
-#  Internal Error (classFileParser.cpp:3375), pid=5244, tid=8908
+#  Internal Error (classFileParser.cpp:3375), pid=8752, tid=7016
 #  Error: ShouldNotReachHere()
 #
 # JRE version: 6.0_24-b07
@@ -12,9 +12,9 @@
 
 ---------------  T H R E A D  ---------------
 
-Current thread (0x000000000056c800):  JavaThread "Unknown thread" [_thread_in_vm, id=8908, stack(0x00000000023a0000,0x00000000024a0000)]
+Current thread (0x000000000037c800):  JavaThread "Unknown thread" [_thread_in_vm, id=7016, stack(0x00000000024b0000,0x00000000025b0000)]
 
-Stack: [0x00000000023a0000,0x00000000024a0000]
+Stack: [0x00000000024b0000,0x00000000025b0000]
 [error occurred during error reporting (printing stack bounds), id 0xc0000005]
 
 
@@ -24,7 +24,7 @@ Java Threads: ( => current thread )
 
 Other Threads:
 
-=>0x000000000056c800 (exited) JavaThread "Unknown thread" [_thread_in_vm, id=8908, stack(0x00000000023a0000,0x00000000024a0000)]
+=>0x000000000037c800 (exited) JavaThread "Unknown thread" [_thread_in_vm, id=7016, stack(0x00000000024b0000,0x00000000025b0000)]
 
 VM state:not at safepoint (not fully initialized)
 
@@ -55,7 +55,7 @@ Dynamic libraries:
 
 VM Arguments:
 jvm_args: -Dfile.encoding=Cp1252 -Xbootclasspath:C:\Program Files (x86)\Android\android-sdk\platforms\android-15\android.jar 
-java_command: org.eclipse.jdt.internal.junit.runner.RemoteTestRunner -version 3 -port 28528 -testLoaderClass org.eclipse.jdt.internal.junit4.runner.JUnit4TestLoader -loaderpluginname org.eclipse.jdt.junit4.runtime -classNames Tests.TestGradeManager
+java_command: org.eclipse.jdt.internal.junit.runner.RemoteTestRunner -version 3 -port 29009 -testLoaderClass org.eclipse.jdt.internal.junit4.runner.JUnit4TestLoader -loaderpluginname org.eclipse.jdt.junit4.runtime -classNames Tests.TestGradeManager
 Launcher Type: SUN_STANDARD
 
 Environment Variables:
@@ -74,10 +74,10 @@ OS: Windows 7 Build 7601 Service Pack 1
 
 CPU:total 4 (2 cores per cpu, 2 threads per core) family 6 model 37 stepping 5, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, ht
 
-Memory: 4k page, physical 4051456k(923800k free), swap 8101060k(1966464k free)
+Memory: 4k page, physical 4051456k(862352k free), swap 8101060k(1905132k free)
 
 vm_info: Java HotSpot(TM) 64-Bit Server VM (19.1-b02) for windows-amd64 JRE (1.6.0_24-b07), built on Feb  2 2011 16:25:45 by "java_re" with MS VC++ 8.0 (VS2005)
 
-time: Sun Feb 10 18:34:32 2013
+time: Sun Feb 10 18:51:53 2013
 elapsed time: 0 seconds
 
