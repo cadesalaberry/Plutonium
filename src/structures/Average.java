@@ -9,10 +9,27 @@ public class Average extends Grade {
 
 	private ArrayList<Grade> breakdown;
 	private String name;
+	
 
 	Average(String name) {
 		super(name);
 		this.breakdown = new ArrayList<Grade>();
+		
+	}
+	
+	//inner class for best of evaluations
+	class BestOfEvaluations {
+		ArrayList<Grade> bestOfList;
+		int num;
+		int denom;
+		
+		BestOfEvaluations(int numerator, int denominator) {
+			bestOfList = new ArrayList<Grade>();
+			num = numerator;
+			denom = denominator;
+		}
+		
+		
 	}
 	
 	public ArrayList<Grade> getGrades() {
@@ -57,5 +74,9 @@ public class Average extends Grade {
 
 	public double getPercentage() {
 		return (getValue() / getOutOf()) * 100;
+	}
+	
+	public double getBestOfPercentage() {
+		return 2.2;
 	}
 }

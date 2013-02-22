@@ -95,5 +95,11 @@ public class Evaluation_Selection extends Activity {
 		Intent intent = new Intent(getApplicationContext(), Course_Selection.class);
 		startActivity(intent);
 	}
+	
+	public void bestOfEvaluationSelection(View view) {
+		finish();
+		Intent intent = new Intent(getApplicationContext(), Best_Of_Menu.class);
+		startActivity(intent);
+	}
 
 }

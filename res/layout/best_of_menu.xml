@@ -1,0 +1,132 @@
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000" >
+
+    <Button
+        android:id="@+id/best_of_cancel_button"
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/best_of_add_button"
+        android:onClick="cancelBestOfMenu"
+        android:text="Cancel"
+        android:textColor="#FFFFFF" />
+
+    <Button
+        android:id="@+id/best_of_add_button"
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:onClick="createBestOfMenu"
+        android:text="Create best x out of y field"
+        android:textColor="#FFFFFF" />
+
+    <TextView
+        android:id="@+id/best_of_type_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Evaluation Type"
+        android:textColor="#FFFFFF"
+        android:textSize="20dp" />
+
+    <Spinner
+        android:id="@+id/best_of_type_spinner"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:layout_marginTop="5dp"
+        android:layout_alignLeft="@+id/best_of_type_text"
+        android:layout_alignRight="@+id/best_of_type_text"
+        android:layout_below="@+id/best_of_type_text"
+        android:background="#FFFFFF" />
+
+    <TextView
+        android:id="@+id/best_of_weight_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+        android:layout_alignLeft="@+id/best_of_type_spinner"
+        android:layout_below="@+id/best_of_type_spinner"
+        android:text="Evaluation Weight (%)"
+        android:textColor="#FFFFFF"
+        android:textSize="20dp" />
+
+    <Spinner
+        android:id="@+id/best_of_weight_spinner"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_alignLeft="@+id/best_of_weight_text"
+        android:layout_alignRight="@+id/best_of_add_button"
+        android:layout_below="@+id/best_of_weight_text"
+        android:background="#FFFFFF" />
+
+    <TextView
+        android:id="@+id/best_of_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/best_of_weight_spinner"
+        android:layout_below="@+id/best_of_weight_spinner"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="8dp"
+        android:text="Best"
+        android:textColor="#FFFFFF"
+        android:textSize="20dp" />
+
+    <EditText
+        android:id="@+id/best_of_box1"
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="5dp"
+        android:layout_alignBottom="@+id/best_of_text"
+        android:layout_alignTop="@+id/best_of_text"
+        android:layout_toRightOf="@+id/best_of_text"
+        android:background="#FFFFFF"
+        android:ems="10"
+        android:imeOptions="actionDone"
+        android:inputType="number" />
+
+    <TextView
+        android:id="@+id/Out_of"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/best_of_box1"
+        android:layout_toRightOf="@+id/best_of_box1"
+        android:text="out of"
+        android:textColor="#FFFFFF"
+        android:textSize="20dp" />
+
+    <EditText
+        android:id="@+id/best_of_box2"
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_alignBottom="@+id/Out_of"
+        android:layout_alignTop="@+id/Out_of"
+        android:layout_toRightOf="@+id/best_of_type_spinner"
+        android:background="#FFFFFF"
+        android:ems="10"
+        android:imeOptions="actionDone"
+        android:inputType="number" />
+
+    <TextView
+        android:id="@+id/evaluations"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/best_of_box2"
+        android:layout_toRightOf="@+id/best_of_box2"
+        android:text="evaluations"
+        android:textColor="#FFFFFF"
+        android:textSize="20dp" />
+
+</RelativeLayout>

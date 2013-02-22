@@ -27,9 +27,7 @@
         </activity>
         <activity android:name="layoutClass.Evaluation_Editor"></activity>
         <activity android:name="layoutClass.Evaluation_Selection"></activity>
-        
-        
-        
+        <activity android:name="layoutClass.Best_Of_Menu"></activity>  
     </application>
     
 
