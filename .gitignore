@@ -4,5 +4,6 @@
 *.jar
 *.war
 *.ear
+*.log
 /nbproject/private/
 /bin/
