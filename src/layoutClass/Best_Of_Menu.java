@@ -1,6 +1,10 @@
 package layoutClass;
 
+import java.util.ArrayList;
+
 import structures.Data;
+import structures.Grade;
+import structures.Bestof;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,14 +20,18 @@ import com.example.grademanager.R;
 public class Best_Of_Menu extends Activity{
 	ArrayAdapter<CharSequence> adapter;
 	ArrayAdapter<CharSequence> adapter2;
+	ArrayList<Bestof> list = new ArrayList<Bestof>();
 	EditText num;
 	EditText denom;
 	Spinner type;
 	Spinner weight;
 	String evalType;
 	String evalWeight;
+	String name;
 	int numerator;
 	int denominator;
+	double individualweight;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -83,8 +91,34 @@ public class Best_Of_Menu extends Activity{
 		numerator = Integer.parseInt(num.getText().toString());
 		denominator = Integer.parseInt(denom.getText().toString());
 		
-		Data.currentCourse.getAverage().newBestOf();
+		individualweight = Double.parseDouble(evalWeight)/numerator;
 		
+		for(int i = 0; i<denominator; i++) {
+			Bestof onebest = new Bestof(evalType, i, 0, 100, individualweight);
+			list.add(onebest);
+		}
+		
+		if(evalType.compareTo("ASSIGNMENT") == 0) {
+			name = "Best Assignments";
+		}
+		else if(evalType.compareTo("QUIZ") == 0) {
+			name = "Best Quizzes";
+		}
+		else if(evalType.compareTo("MIDTERM") == 0) {
+			name = "Best Midterms";
+		}
+		else if(evalType.compareTo("FINAL") == 0) {
+			name = "Best Finals";
+		}
+		else if(evalType.compareTo("PROJECT") == 0) {
+			name = "Best Projects";
+		}
+		
+		Grade bestofeval = new Grade(name, evalType, numerator, 0, 100, Double.parseDouble(evalWeight), list);
+		Data.currentCourse.getAverage().addGrade(bestofeval);
+		finish();
+		Intent intent = new Intent(getApplicationContext(), Evaluation_Selection.class);
+		startActivity(intent);
 	}
 	
 	public void cancelBestOfMenu(View view) {

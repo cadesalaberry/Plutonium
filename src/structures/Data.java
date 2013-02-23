@@ -10,6 +10,7 @@ public class Data {
 	public static Course currentCourse;
 	public static Evaluation currentEvaluation;
 	public static Grade currentGrade;
+	public static Bestof currentBestof;
 	public static ArrayList<Semester> createdSemesters;	
 	public static ArrayList<GPA> gpaValue;
 }

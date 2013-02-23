@@ -70,8 +70,14 @@ public class Evaluation_Selection extends Activity {
         	Data.currentGrade = evals.get(deletepos);
         	Data.editMode = true;
     		finish();
-        	Intent intent = new Intent(getApplicationContext(), Evaluation_Editor.class);
-        	startActivity(intent);
+    		if(Data.currentGrade.getBestof() != null) {
+    			Intent intent = new Intent(getApplicationContext(), Best_Of_List.class);
+            	startActivity(intent);
+    		}
+    		else {
+	        	Intent intent = new Intent(getApplicationContext(), Evaluation_Editor.class);
+	        	startActivity(intent);
+    		}
         }
         else {return false;}  
     return true;  
