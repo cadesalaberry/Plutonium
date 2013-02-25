@@ -72,68 +72,23 @@
            android:layout_width="wrap_content"
            android:layout_height="wrap_content"
            android:layout_alignParentLeft="true"
-           android:layout_alignRight="@+id/evaluation_editor_name_box"
+           android:layout_alignRight="@+id/evaluation_editor_type_text"
            android:layout_below="@+id/evaluation_editor_type_text"
            android:layout_marginLeft="15dp"
            android:layout_marginTop="5dp"
            android:background="#FFFFFF" />
 
-    <TextView
-        android:id="@+id/evaluation_editor_weight_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/evaluation_editor_spinner"
-		android:layout_marginTop="5dp"
-        android:layout_marginLeft="15dp"
-        android:text="Weight"
-        android:textColor="@android:color/white"
-        android:textSize="20dp" />
-
-    <EditText
-        android:id="@+id/evaluation_editor_weight_box"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/evaluation_editor_weight_text"
-        android:layout_marginTop="5dp"
-        android:layout_marginLeft="15dp"
-        android:background="#FFFFFF"
-        android:ems="10"
-        android:imeOptions="actionDone"
-        android:inputType="numberDecimal"
-        android:textColor="@android:color/black"
-        android:textSize="16dp" />
-
-    <TextView
-        android:id="@+id/evaluation_editor_grade_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/evaluation_editor_name_text"
-        android:layout_alignBottom="@+id/evaluation_editor_name_text"
-        android:layout_marginRight="66dp"
-        android:layout_toLeftOf="@+id/evaluation_editor_cancel_button"
-        android:text="Grade"
-        android:textColor="@android:color/white"
-        android:textSize="20dp" />
-
-    <TextView
-        android:id="@+id/evaluation_editor_comments_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/evaluation_editor_spinner"
-        android:layout_alignLeft="@+id/evaluation_editor_grade_text"
-        android:text="Comments"
-        android:textColor="@android:color/white"
-        android:textSize="20dp" />
-
     <EditText
         android:id="@+id/evaluation_editor_comments_box"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/evaluation_editor_weight_text"
+        android:layout_above="@+id/evaluation_editor_ok_button"
         android:layout_alignLeft="@+id/evaluation_editor_comments_text"
-        android:layout_alignTop="@+id/evaluation_editor_spinner"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/evaluation_editor_comments_text"
+        android:layout_marginBottom="30dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="5dp"
         android:background="#FFFFFF"
         android:ems="10"
         android:imeOptions="actionDone"
@@ -141,14 +96,53 @@
         android:textColor="@android:color/black"
         android:textSize="16dp" />
 
-    <EditText
-        android:id="@+id/evaluation_editor_grade_box"
+    <TextView
+        android:id="@+id/evaluation_editor_weight_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/evaluation_editor_name_box"
-        android:layout_alignBottom="@+id/evaluation_editor_name_box"
-        android:layout_alignLeft="@+id/evaluation_editor_grade_text"
-        android:layout_alignRight="@+id/evaluation_editor_comments_text"
+        android:layout_above="@+id/evaluation_editor_name_box"
+        android:layout_marginLeft="28dp"
+        android:layout_toRightOf="@+id/evaluation_editor_name_box"
+        android:text="Weight (in %)"
+        android:textColor="@android:color/white"
+        android:textSize="20dp" />
+
+    <Spinner
+        android:id="@+id/evaluation_editor_weight_spinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/evaluation_editor_spinner"
+        android:layout_alignLeft="@+id/evaluation_editor_weight_text"
+        android:layout_alignRight="@+id/evaluation_editor_weight_text"
+        android:layout_alignTop="@+id/evaluation_editor_name_box"
+        android:background="#FFFFFF" />
+
+    <TextView
+        android:id="@+id/evaluation_editor_comments_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/evaluation_editor_weight_spinner"
+        android:layout_alignTop="@+id/evaluation_editor_spinner"
+        android:text="Comments"
+        android:textColor="@android:color/white"
+        android:textSize="20dp" />
+
+    <TextView
+        android:id="@+id/evaluation_editor_grade_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/evaluation_editor_name_box"
+        android:layout_alignLeft="@+id/evaluation_editor_grade_box"
+        android:text="Grade"
+        android:textColor="@android:color/white"
+        android:textSize="20dp" />
+
+    <EditText
+        android:id="@+id/evaluation_editor_grade_box"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/evaluation_editor_type_text"
+        android:layout_alignLeft="@+id/evaluation_editor_cancel_button"
         android:background="#FFFFFF"
         android:ems="10"
         android:imeOptions="actionDone"

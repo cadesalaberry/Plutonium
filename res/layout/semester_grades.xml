@@ -1,47 +1,39 @@
 
-
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#000000" >
 
-    <ListView
-        android:id="@+id/mylist"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/semester_grades_back_button"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/semester_grades_grading_scheme"
-        android:layout_marginBottom="10dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
-        android:background="#FFFFFF"
-        android:divider="#000000"
-        android:dividerHeight="1dp" >
+    <TextView
+        android:id="@+id/semester_grades_grading_scheme"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:text="About this software"
+        android:textColor="#FFFFFF" />
 
-    </ListView>
+    <TextView
+        android:id="@+id/abouttxt"
+        android:layout_width="220dp"
+        android:layout_height="200dp"
+        android:layout_below="@+id/semester_grades_grading_scheme"
+        android:layout_centerHorizontal="true"
+        android:background="#FFFFFF"
+        android:ems="10"
+        android:inputType="textMultiLine"
+        android:textSize="16dp" />
 
     <Button
         android:id="@+id/semester_grades_back_button"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignRight="@+id/mylist"
-        android:layout_marginBottom="10dp"
-        android:text="Back"
+        android:layout_below="@+id/abouttxt"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="27dp"
         android:onClick="backSemesterGrades"
-        android:textColor="#FFFFFF" />
-
-    <TextView
-        android:id="@+id/semester_grades_grading_scheme"
-        android:layout_width="wrap_content"
-        android:layout_height="30dp"
-        android:layout_alignLeft="@+id/mylist"
-        android:layout_alignParentTop="true"
-        android:layout_alignRight="@+id/mylist"
-        android:text="Grading scheme here"
+        android:text="Back"
         android:textColor="#FFFFFF" />
 
 </RelativeLayout>
