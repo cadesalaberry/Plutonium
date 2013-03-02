@@ -34,7 +34,9 @@
         android:layout_alignTop="@+id/semester_grades_button"
         android:layout_alignBottom="@+id/semester_grades_button"
         android:layout_marginLeft="80dp"
-        android:text="Settings"
+        android:text="Simulate"
+        android:onClick="Simulate"
+        android:textSize="17dp"
         android:textColor="#FFFFFF" />
 
 

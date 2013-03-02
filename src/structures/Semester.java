@@ -88,6 +88,22 @@ public class Semester {
 	}
 	
 	/**
+	 * Gets the credits of a semester.
+	 * 
+	 * @return credits
+	 */
+	public double getCredits() {
+		double totalCredit = 0;
+		for(int i=0;i<this.courses.size();i++){
+			if(this.courses.isEmpty()){
+				return 0;
+			}
+			totalCredit += this.courses.get(i).getCredit();
+		}
+		return totalCredit;
+	}
+	
+	/**
 	 * Gets the session and year of the current semester.
 	 * 
 	 * @return session

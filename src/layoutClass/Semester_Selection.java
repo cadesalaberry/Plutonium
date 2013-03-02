@@ -3,6 +3,7 @@ package layoutClass;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 
+import structures.Course;
 import structures.Data;
 import structures.Semester;
 import structures.GPA;
@@ -28,8 +29,12 @@ public class Semester_Selection extends Activity {
 	String semesterGPA;
 	ArrayAdapter<String> adapter;
 	int deletepos;
-	float gpa = 0;
+	double gpa = 0;
 	String cgpa;	
+	Semester tempSemester;
+	ArrayList<Course> tempCoursesList = new ArrayList<Course>();
+	Course tempCourse;
+	double totalCredit = 0;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -40,9 +45,10 @@ public class Semester_Selection extends Activity {
 		TextView myText = (TextView) findViewById(R.id.CGPA_Box);
 		
 		if(Data.dataLoaded == false) {
-		Data.createdSemesters = new ArrayList<Semester>();
-		Data.gpaValue = new ArrayList<GPA>();
-		Data.dataLoaded = true;
+			Data.createdSemesters = new ArrayList<Semester>();
+			Data.gpaValue = new ArrayList<GPA>();
+			Data.simgpaValue = new ArrayList<GPA>();
+			Data.dataLoaded = true;
 		}
 		
 		values = new String[Data.createdSemesters.size()];
@@ -73,14 +79,19 @@ public class Semester_Selection extends Activity {
 		
 		if(Data.createdSemesters.size() != 0) {
 			for(int i = 0; i < Data.createdSemesters.size(); i++) {
-				gpa = gpa + (float) Data.createdSemesters.get(i).getGPA();
+				tempSemester = Data.createdSemesters.get(i);
+				totalCredit = totalCredit + Data.createdSemesters.get(i).getCredits();
+				tempCoursesList = tempSemester.getCourses();
+				for(int j = 0; j < tempCoursesList.size(); j++) {
+					tempCourse = tempCoursesList.get(j);
+					gpa = gpa + tempCourse.getGP()*tempCourse.getCredit();
+				}
 			}
-			gpa = gpa/Data.createdSemesters.size();
-			
-			//DecimalFormat decFormat = new DecimalFormat("#.##");
-		 	//cgpa = decFormat.format(gpa);
-		 	
-			cgpa = (Float.toString(gpa));
+			if(tempCourse != null)
+				gpa = gpa/totalCredit;		 	
+			else
+				gpa = 0;
+			cgpa = (Double.toString(gpa));
 		}
 		else {
 			cgpa = "N/A";
@@ -139,6 +150,12 @@ public class Semester_Selection extends Activity {
 	public void gradingSchemeSemesterSelection(View view) {
 		finish();
 		Intent intent = new Intent(getApplicationContext(), Grading_Scheme.class);
+		startActivity(intent);
+	}
+	
+	public void Simulate(View view) {
+		finish();
+		Intent intent = new Intent(getApplicationContext(), Simulator_screen.class);
 		startActivity(intent);
 	}
 }

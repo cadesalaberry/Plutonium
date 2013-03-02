@@ -12,6 +12,14 @@ public class GPA {
 		this.gradePoint = gradePointValue;
 		this.letterGrade = letterGradeValue;	
 	}
+	
+	public GPA(String letterGradeValue){
+		this.letterGrade = letterGradeValue;	
+		for(int i = 0; i < Data.gpaValue.size(); i++) {
+			if(Data.gpaValue.get(i).getLetterGrade().equals(letterGradeValue))
+				this.gradePoint = Data.gpaValue.get(i).getGradePoint();
+		}
+	}
 
 	
 	public void setLetterGrade(String letter){

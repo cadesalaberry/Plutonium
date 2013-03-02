@@ -13,4 +13,5 @@ public class Data {
 	public static Bestof currentBestof;
 	public static ArrayList<Semester> createdSemesters;	
 	public static ArrayList<GPA> gpaValue;
+	public static ArrayList<GPA> simgpaValue;
 }

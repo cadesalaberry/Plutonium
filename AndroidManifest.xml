@@ -29,7 +29,8 @@
         <activity android:name="layoutClass.Evaluation_Selection"></activity>
         <activity android:name="layoutClass.Best_Of_Menu"></activity>
         <activity android:name="layoutClass.Best_Of_List"></activity>
-        <activity android:name="layoutClass.Best_Grade_Editor"></activity>  
+        <activity android:name="layoutClass.Best_Grade_Editor"></activity>
+        <activity android:name="layoutClass.Simulator_screen"></activity>  
     </application>
     
 
