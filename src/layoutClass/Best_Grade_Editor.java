@@ -44,6 +44,12 @@ public class Best_Grade_Editor extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.best_grade_editor);
 		
+		grade = (EditText) findViewById(R.id.best_editor_grade_box);
+		
+		if(Data.editMode) {
+			grade.setText(Double.toString(Data.currentBestof.getValue()));
+		}
+		
 	}
 	
 	public void addGrade(View view) {

@@ -5,10 +5,14 @@ import java.util.ArrayList;
 public class GPA {
 		
 	private double gradePoint;
+	private double percentLow;
+	private double percentHigh;
 	private String letterGrade;
 	
 	
-	public GPA(double gradePointValue, String letterGradeValue){
+	public GPA(double gradePointValue, double percentLow, double percentHigh, String letterGradeValue){
+		this.percentLow = percentLow;
+		this.percentHigh = percentHigh;
 		this.gradePoint = gradePointValue;
 		this.letterGrade = letterGradeValue;	
 	}
@@ -50,6 +54,22 @@ public class GPA {
 		}
 		return gradePointValue;
 		
+	}
+	
+	public double getPercentLow() {
+		return this.percentLow;
+	}
+	
+	public double getPercentHigh() {
+		return this.percentHigh;
+	}
+	
+	public void setPercentLow(double percentLow) {
+		this.percentLow = percentLow;
+	}
+	
+	public void setPercentHigh(double percentHigh) {
+		this.percentHigh = percentHigh;
 	}
 	
 

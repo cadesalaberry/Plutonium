@@ -28,7 +28,6 @@ public class Course_Editor extends Activity  {
 	EditText profName;
 	EditText profEmail;
 	Spinner courseCredits;
-	EditText letterGrade;
 	String credits;
 	final Context context = this;
 	
@@ -94,15 +93,13 @@ public class Course_Editor extends Activity  {
 		courseLocation = (EditText) findViewById(R.id.course_editor_course_location_box);
 		profName = (EditText) findViewById(R.id.course_editor_name_of_professor_box);
 		profEmail = (EditText) findViewById(R.id.course_editor_professor_email_box);
-		letterGrade = (EditText) findViewById(R.id.course_editor_temp_letter_box);
 		
 		String subject = courseSubject.getText().toString();
 		String location = courseLocation.getText().toString();
 		String prof_name = profName.getText().toString();
 		String prof_email = profEmail.getText().toString();
-		String letter = letterGrade.getText().toString();
 		
-		if(subject.compareTo("") == 0 || letter.compareTo("") == 0) {
+		if(subject.compareTo("") == 0) {
 			final Dialog errorPopUp = new Dialog(context);
 			
 			errorPopUp.setCanceledOnTouchOutside(false);
@@ -142,7 +139,6 @@ public class Course_Editor extends Activity  {
 					break;
 					}
 				}*/
-			course.setCourseGP(letter);
 			Data.currentSemester.addCourse(course);
 			}
 			

@@ -49,6 +49,18 @@ public class Semester_Selection extends Activity {
 			Data.gpaValue = new ArrayList<GPA>();
 			Data.simgpaValue = new ArrayList<GPA>();
 			Data.dataLoaded = true;
+			
+			Data.gpaValue.add(new GPA(0, 0, 0, "A+"));
+			Data.gpaValue.add(new GPA(0, 0, 0, "A"));
+			Data.gpaValue.add(new GPA(0, 0, 0, "A-"));
+			Data.gpaValue.add(new GPA(0, 0, 0, "B+"));
+			Data.gpaValue.add(new GPA(0, 0, 0, "B"));
+			Data.gpaValue.add(new GPA(0, 0, 0, "B-"));
+			Data.gpaValue.add(new GPA(0, 0, 0, "C+"));
+			Data.gpaValue.add(new GPA(0, 0, 0, "C"));
+			Data.gpaValue.add(new GPA(0, 0, 0, "C-"));
+			Data.gpaValue.add(new GPA(0, 0, 0, "D"));
+			Data.gpaValue.add(new GPA(0, 0, 0, "F"));
 		}
 		
 		values = new String[Data.createdSemesters.size()];

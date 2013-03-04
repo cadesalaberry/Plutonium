@@ -11,52 +11,93 @@
         android:layout_height="fill_parent"
         android:layout_above="@+id/evaluation_selection_back_button"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/evaluation_selection_add_button"
+        android:layout_below="@+id/textView1"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
+        android:layout_marginTop="5dp"
         android:background="#FFFFFF"
         android:divider="#000000"
         android:dividerHeight="1dp" >
-
     </ListView>
-
-    <Button
-        android:id="@+id/evaluation_selection_add_button"
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="5dp"
-        android:layout_width="130dp"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/best_evaluation_list"
-        android:layout_alignParentTop="true"
-        android:onClick="addBestEvaluationSelection"
-        android:text="Add Weighted Evaluation"
-        android:textSize="15dp"
-        android:textColor="#FFFFFF" />
 
     <Button
         android:id="@+id/evaluation_selection_back_button"
         android:layout_width="130dp"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="5dp"
-        android:onClick="backEvaluationSelection"
+        android:layout_alignRight="@+id/best_evaluation_list"
+        android:onClick="backBestOfList"
         android:text="Back"
         android:textColor="#FFFFFF" />
 
     <Button
-        android:id="@+id/evaulation_selection_bestof_button"
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="5dp"
+        android:id="@+id/evaluation_selection_add_button"
         android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/best_evaluation_list"
+        android:layout_below="@+id/best_evaluation_list"
+        android:onClick="addBestOfList"
+        android:text="Add Evaluation"
+        android:textColor="#FFFFFF"
+        android:textSize="15dp" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/best_evaluation_list"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="2dp"
+        android:text="Best"
+        android:textColor="#FFFFFF"
+        android:textSize="24dp" />
+
+    <EditText
+        android:id="@+id/best_of_list_x"
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/textView1"
+        android:layout_alignTop="@+id/textView1"
+        android:layout_toRightOf="@+id/textView1"
+        android:layout_marginRight="2dp"
+        android:background="#FFFFFF"
+        android:ems="10"
+        android:imeOptions="actionDone"
+        android:inputType="number" >
+
+        <requestFocus />
+    </EditText>
+
+    <TextView
+        android:id="@+id/TextView01"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/best_evaluation_list"
+        android:layout_toRightOf="@+id/best_of_list_x"
+        android:text="out of"
+        android:textColor="#FFFFFF"
+        android:textSize="24dp" />
+
+    <TextView
+        android:id="@+id/best_of_list_y"
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/best_evaluation_list"
+        android:layout_alignLeft="@+id/evaluation_selection_back_button"
+        android:layout_alignTop="@+id/TextView01"
+        android:textColor="#FFFFFF"
+        android:textSize="24dp" />
+
+    <Button
+        android:id="@+id/best_of_list_change"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/best_evaluation_list"
         android:layout_alignParentTop="true"
         android:layout_alignRight="@+id/best_evaluation_list"
-        android:onClick="addNonEvaluationSelection"
-        android:text="Add Non-Weighted Evaluation"
-        android:textSize="12dp"
+        android:onClick="changeBestOfList"
+        android:text="Ok"
         android:textColor="#FFFFFF" />
 
 </RelativeLayout>

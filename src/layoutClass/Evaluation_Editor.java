@@ -98,7 +98,7 @@ public class Evaluation_Editor extends Activity implements OnItemSelectedListene
 			
 			for(int i = 0; i < 100; i++) {
 				if(Data.currentGrade.getCoefficient() == (i+1)) {
-					weight.setSelection((i-1));
+					weight.setSelection((i));
 					break;
 				}
 			}
@@ -186,6 +186,7 @@ public class Evaluation_Editor extends Activity implements OnItemSelectedListene
 						break;
 						}
 					}*/		
+				
 				Data.currentCourse.getAverage().addGrade(evaluation);
 				}
 				

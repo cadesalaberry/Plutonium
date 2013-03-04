@@ -66,6 +66,23 @@ public class Course {
 		}	
 	}
 	
+	public void setCourseLetter() {
+		double finalAverage;
+		
+		finalAverage = average.getPercentage();
+		
+		for(int i = 0; i < Data.gpaValue.size(); i++) {
+			double bottomLimit = Data.gpaValue.get(i).getPercentLow();
+			double upperLimit = Data.gpaValue.get(i).getPercentHigh();
+			
+			if(finalAverage == bottomLimit || finalAverage == upperLimit 
+					|| (finalAverage > bottomLimit && finalAverage < upperLimit)) {
+				this.courseLetter = Data.gpaValue.get(i).getLetterGrade();
+				break;
+			}
+		}
+	}
+	
 	@Deprecated
 	public void setLetterGrade(String letter){
 		this.courseLetter = letter;

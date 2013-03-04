@@ -1,6 +1,7 @@
 package layoutClass;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 import structures.Bestof;
 import structures.Course;
@@ -19,6 +20,7 @@ import android.view.View;
 import android.view.ContextMenu.ContextMenuInfo;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -26,6 +28,8 @@ import android.widget.TextView;
 public class Best_Of_List extends Activity {
 	Grade thisGrade;
 	ListView bestofevals;
+	EditText x;
+	TextView y;
 	ArrayAdapter<String> adapter;
 	ArrayList<Bestof> evals;
 	Bestof oneeval;
@@ -41,9 +45,14 @@ public class Best_Of_List extends Activity {
 		setContentView(R.layout.best_of_list);
 		
 		bestofevals = (ListView) findViewById(R.id.best_evaluation_list);
+		x = (EditText) findViewById(R.id.best_of_list_x);
+		y = (TextView) findViewById(R.id.best_of_list_y);
 		
 		thisGrade = Data.currentGrade;
 		evals = thisGrade.getBestof();	
+		
+		x.setText(Integer.toString(thisGrade.getTotal()));
+		y.setText(Integer.toString(evals.size()));
 		
 		values = new String[evals.size()];
 		
@@ -79,15 +88,15 @@ public class Best_Of_List extends Activity {
 		AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) menuInfo;
 	    deletepos = (int) info.id;
 		menu.setHeaderTitle("More");  
-		menu.add(0, v.getId(), 0, "Delete as Weighted");  
-		menu.add(0, v.getId(), 0, "Delete as Non-Weighted");
+		menu.add(0, v.getId(), 0, "Delete");  
 		menu.add(0, v.getId(), 0, "Edit");
 	} 
 
 	@Override  
     public boolean onContextItemSelected(MenuItem item) {  
-        if(item.getTitle()=="Delete as Weighted"){deleteWeightedEvaluation(item.getItemId());}  
-        if(item.getTitle()=="Delete as Non-Weighted"){deleteNonEvaluation(item.getItemId());} 
+        if(item.getTitle()=="Delete") {
+        	deleteEvaluation(item.getItemId());
+        	} 
         if(item.getTitle()=="Edit") {
         	Data.currentBestof = evals.get(deletepos);
         	Data.editMode = true;
@@ -99,28 +108,14 @@ public class Best_Of_List extends Activity {
     return true;  
     } 
 	
-	public void deleteWeightedEvaluation(int i) {
-		length = thisGrade.getTotal();
-		individualweight = thisGrade.getCoefficient()/(length-1);
-		for(int j = 0; j<evals.size(); j++) {
-			oneeval = evals.get(j);
-			oneeval.setCoefficient(individualweight);
-		}
-		evals.remove(deletepos);
-		thisGrade.setTotal(length-1);
-		finish();
-		Intent intent = new Intent(getApplicationContext(), Best_Of_List.class);
-		startActivity(intent);
-	}
-	
-	public void deleteNonEvaluation(int i) {
+	public void deleteEvaluation(int i) {
 		evals.remove(deletepos);
 		finish();
 		Intent intent = new Intent(getApplicationContext(), Best_Of_List.class);
 		startActivity(intent);
 	}
 	
-	public void addBestEvaluationSelection(View view) {
+	public void addBestOfList(View view) {
 		length = thisGrade.getTotal();
 		individualweight = thisGrade.getCoefficient()/(length+1);
 		Bestof onebest = new Bestof(thisGrade.getEvalType(), (length+1), 0, 100, individualweight);
@@ -135,18 +130,50 @@ public class Best_Of_List extends Activity {
 		startActivity(intent);
 	}
 	
-	public void backEvaluationSelection(View view) {
+	public void backBestOfList(View view) {
+		
+		ArrayList<Bestof> list = thisGrade.getBestof();
+		ArrayList<Double> values = new ArrayList<Double>();
+		
+		for(int i = 0; i < list.size(); i++) {
+			values.add(list.get(i).getValue());
+		}
+		
+		Collections.sort(values);
+		
+		double result = 0;
+		for(int i = (values.size() - thisGrade.getTotal()) ; i < values.size(); i++) {
+			result += values.get(i);
+		}
+		result = result / (double) thisGrade.getTotal();
+		thisGrade.setGrade(result, 100);
+		
 		finish();
 		Intent intent = new Intent(getApplicationContext(), Evaluation_Selection.class);
 		startActivity(intent);
 	}
 	
-	public void addNonEvaluationSelection(View view) {
+	/*public void addNonEvaluationSelection(View view) {
 		Bestof onebest = new Bestof(thisGrade.getEvalType(), (length+1), 0, 100, evals.get(0).getCoefficient());
 		evals.add(onebest);
 		finish();
 		Intent intent = new Intent(getApplicationContext(), Best_Of_List.class);
 		startActivity(intent);
-	}
+	}*/
+	
+	public void changeBestOfList(View view) {
+		thisGrade.setTotal(Integer.parseInt(x.getText().toString()));
+		
+		length = thisGrade.getTotal();
+		individualweight = thisGrade.getCoefficient()/(length);
 
+		for(int i = 0; i<evals.size(); i++) {
+			oneeval = evals.get(i);
+			oneeval.setCoefficient(individualweight);
+		}
+		
+		finish();
+		Intent intent = new Intent(getApplicationContext(), Best_Of_List.class);
+		startActivity(intent);
+	}
 }

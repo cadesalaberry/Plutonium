@@ -4,6 +4,7 @@
 package structures;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Average extends Grade {
 
@@ -14,21 +15,6 @@ public class Average extends Grade {
 	Average(String name) {
 		super(name);
 		this.breakdown = new ArrayList<Grade>();
-		
-	}
-	
-	//inner class for best of evaluations
-	class BestOfEvaluations {
-		ArrayList<Grade> bestOfList;
-		int num;
-		int denom;
-		
-		BestOfEvaluations(int numerator, int denominator) {
-			bestOfList = new ArrayList<Grade>();
-			num = numerator;
-			denom = denominator;
-		}
-		
 		
 	}
 	
@@ -53,7 +39,7 @@ public class Average extends Grade {
 
 		double value = 0;
 
-		for (Grade grade : breakdown) {
+		for (Grade grade : breakdown) {		
 			value += grade.getValue() * grade.getCoefficient();
 		}
 
@@ -74,9 +60,5 @@ public class Average extends Grade {
 
 	public double getPercentage() {
 		return (getValue() / getOutOf()) * 100;
-	}
-	
-	public double getBestOfPercentage() {
-		return 2.2;
 	}
 }

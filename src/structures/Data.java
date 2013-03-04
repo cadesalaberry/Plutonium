@@ -11,6 +11,7 @@ public class Data {
 	public static Evaluation currentEvaluation;
 	public static Grade currentGrade;
 	public static Bestof currentBestof;
+	public static GPA currentGPAentry;
 	public static ArrayList<Semester> createdSemesters;	
 	public static ArrayList<GPA> gpaValue;
 	public static ArrayList<GPA> simgpaValue;

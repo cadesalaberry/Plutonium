@@ -69,6 +69,7 @@ public class Course_Selection extends Activity {
 	 values = new String[courses.size()];
 	 
 	 for(int i = 0; i < courses.size(); i++) {
+		 courses.get(i).setCourseLetter();
 		 if(courses.get(i).getAverage().getGrades().size() > 0) {
 			 values[i] = courses.get(i).getSubject() + "	Letter:" + courses.get(i).getLetterGrade() + "  " 
 					 + courses.get(i).getAverage().getPercentage() + "%";
@@ -91,6 +92,7 @@ public class Course_Selection extends Activity {
 			startActivity(intent);
 			}
 		});
+	 
 	 
 	 courseList.setAdapter(adapter);
 	 registerForContextMenu(courseList);

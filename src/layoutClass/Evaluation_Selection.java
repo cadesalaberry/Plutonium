@@ -107,5 +107,4 @@ public class Evaluation_Selection extends Activity {
 		Intent intent = new Intent(getApplicationContext(), Best_Of_Menu.class);
 		startActivity(intent);
 	}
-
 }
