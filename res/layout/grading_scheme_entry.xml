@@ -1,0 +1,96 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000" >
+
+    <TextView
+        android:id="@+id/grading_scheme_range_text"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="60dp"
+        android:layout_toRightOf="@+id/grading_scheme_entry_ok_button"
+        android:gravity="center"
+        android:text="RANGE (%)"
+        android:textColor="#FFFFFF"
+        android:textSize="12dp" />
+
+    <Spinner
+        android:id="@+id/grading_scheme_entry_spinner1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/grading_scheme_range_text"
+        android:layout_below="@+id/grading_scheme_range_text"
+        android:layout_toRightOf="@+id/grading_scheme_entry_ok_button"
+        android:background="#FFFFFF" />
+
+    <TextView
+        android:id="@+id/grading_scheme_to"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/grading_scheme_entry_spinner1"
+        android:layout_below="@+id/grading_scheme_entry_spinner1"
+        android:layout_toRightOf="@+id/grading_scheme_entry_ok_button"
+        android:gravity="center"
+        android:text="TO"
+        android:textColor="#FFFFFF"
+        android:textSize="12dp" />
+
+    <Spinner
+        android:id="@+id/grading_scheme_entry_spinner2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/grading_scheme_to"
+        android:layout_below="@+id/grading_scheme_to"
+        android:layout_toRightOf="@+id/grading_scheme_entry_ok_button"
+        android:background="#FFFFFF" />
+
+    <Button
+        android:id="@+id/grading_scheme_entry_ok_button"
+        android:layout_width="wrap_content"
+        android:layout_height="45dp"
+        android:layout_alignLeft="@+id/grading_scheme_entry_cancel_button"
+        android:layout_alignRight="@+id/grading_scheme_entry_cancel_button"
+        android:layout_below="@+id/grading_scheme_entry_spinner2"
+        android:onClick="saveGradingScheme"
+        android:text="Ok"
+        android:textColor="#FFFFFF" />
+
+    <Button
+        android:id="@+id/grading_scheme_entry_cancel_button"
+        android:layout_width="wrap_content"
+        android:layout_height="45dp"
+        android:layout_below="@+id/grading_scheme_entry_ok_button"
+        android:layout_centerHorizontal="true"
+        android:onClick="backGradingScheme"
+        android:text="Cancel"
+        android:textColor="#FFFFFF" />
+
+    <TextView
+        android:id="@+id/grading_scheme_grade_points_text"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toLeftOf="@+id/grading_scheme_entry_ok_button"
+        android:text="GRADE POINTS"
+        android:textColor="#FFFFFF"
+        android:textSize="12dp" />
+
+    <EditText
+        android:id="@+id/grading_scheme_entry_grade_points_box"
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/grading_scheme_grade_points_text"
+        android:layout_alignTop="@+id/grading_scheme_entry_spinner1"
+        android:layout_toLeftOf="@+id/grading_scheme_entry_ok_button"
+        android:background="#FFFFFF"
+        android:ems="10"
+        android:imeOptions="actionDone"
+        android:inputType="numberDecimal" >
+
+        <requestFocus />
+    </EditText>
+
+</RelativeLayout>
