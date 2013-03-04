@@ -21,15 +21,15 @@ public class GradeManagerTest {
 	{
 		Data.gpaValue = new ArrayList<GPA>();
 		
-		Data.gpaValue.add(new GPA(4.0, "A"));
-		Data.gpaValue.add(new GPA(3.7, "A-"));
-		Data.gpaValue.add(new GPA(3.3, "B+"));
-		Data.gpaValue.add(new GPA(3.0, "B"));
-		Data.gpaValue.add(new GPA(2.7, "B-"));
-		Data.gpaValue.add(new GPA(2.3, "C+"));
-		Data.gpaValue.add(new GPA(2.0, "C"));
-		Data.gpaValue.add(new GPA(1.0, "D"));
-		Data.gpaValue.add(new GPA(0.0, "F"));
+		Data.gpaValue.add(new GPA(4.0, 85, 100, "A"));
+		Data.gpaValue.add(new GPA(3.7, 80, 84, "A-"));
+		Data.gpaValue.add(new GPA(3.3, 75, 79, "B+"));
+		Data.gpaValue.add(new GPA(3.0, 70, 74, "B"));
+		Data.gpaValue.add(new GPA(2.7, 65, 69, "B-"));
+		Data.gpaValue.add(new GPA(2.3, 60, 64, "C+"));
+		Data.gpaValue.add(new GPA(2.0, 55, 59, "C"));
+		Data.gpaValue.add(new GPA(1.0, 50, 54, "D"));
+		Data.gpaValue.add(new GPA(0.0, 0, 49, "F"));
 		
 	}
 	

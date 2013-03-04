@@ -17,7 +17,6 @@
         <activity android:name="layoutClass.Course_Editor"></activity>
         <activity android:name="layoutClass.Course_Selection"></activity>
         <activity android:name="layoutClass.Grading_Scheme"></activity>
-        <activity android:name="layoutClass.Grading_Scheme_Entry"></activity>
         <activity android:name="layoutClass.Semester_Grade"></activity>
         <activity android:name="layoutClass.Semester_Selection">
             <intent-filter>
@@ -31,7 +30,7 @@
         <activity android:name="layoutClass.Best_Of_Menu"></activity>
         <activity android:name="layoutClass.Best_Of_List"></activity>
         <activity android:name="layoutClass.Best_Grade_Editor"></activity>
-        <activity android:name="layoutClass.Simulator_screen"></activity>  
+        <activity android:name="layoutClass.Simulator_screen"></activity>
     </application>
     
 
