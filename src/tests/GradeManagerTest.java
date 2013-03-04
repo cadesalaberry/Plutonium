@@ -1,35 +1,30 @@
 package tests;
 
-import static org.junit.Assert.*;
-
 import java.util.ArrayList;
 
+import static org.junit.Assert.*;
+
+import org.junit.AfterClass;
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
-import structures.Course;
-import structures.Data;
-import structures.GPA;
-import structures.Grade;
-import structures.Semester;
-import structures.Session;
-
-public class GradeManagerTest {
+public class TestGradeManager{
 
 	@Before
 	public void setUpGPA()
 	{
 		Data.gpaValue = new ArrayList<GPA>();
 		
-		Data.gpaValue.add(new GPA(4.0, 85, 100, "A"));
-		Data.gpaValue.add(new GPA(3.7, 80, 84, "A-"));
-		Data.gpaValue.add(new GPA(3.3, 75, 79, "B+"));
-		Data.gpaValue.add(new GPA(3.0, 70, 74, "B"));
-		Data.gpaValue.add(new GPA(2.7, 65, 69, "B-"));
-		Data.gpaValue.add(new GPA(2.3, 60, 64, "C+"));
-		Data.gpaValue.add(new GPA(2.0, 55, 59, "C"));
-		Data.gpaValue.add(new GPA(1.0, 50, 54, "D"));
-		Data.gpaValue.add(new GPA(0.0, 0, 49, "F"));
+		Data.gpaValue.add(new GPA(4.0,85,100,"A"));
+		Data.gpaValue.add(new GPA(3.7,80,84,"A-"));
+		Data.gpaValue.add(new GPA(3.3,75,79,"B+"));
+		Data.gpaValue.add(new GPA(3.0,70,74,"B"));
+		Data.gpaValue.add(new GPA(2.7,65,69,"B-"));
+		Data.gpaValue.add(new GPA(2.3,60,64,"C+"));
+		Data.gpaValue.add(new GPA(2.0,55,59,"C"));
+		Data.gpaValue.add(new GPA(1.0,50,54,"D"));
+		Data.gpaValue.add(new GPA(0.0,0,49,"F"));
 		
 	}
 	
@@ -102,5 +97,138 @@ public class GradeManagerTest {
 
 		assertEquals((15+20+27), course1.getAverage().getPercentage(), 3);
 		
+	}
+
+	//Test get out of
+	@Test
+	public void testGetOutOf()
+	{
+		Course course1 = new Course("Subject1", "Location1", "Instructor1", "email1", 3);
+		Bestof bestof1 = new Bestof("Quiz", 1, 15, 20, 5);
+		Bestof bestof2 = new Bestof("Quiz", 2, 10, 20, 5);
+		Bestof bestof3 = new Bestof("Quiz", 3, 17, 20, 5);
+		ArrayList<Bestof>list = new ArrayList<Bestof>();
+		list.add(bestof1);list.add(bestof2);list.add(bestof3);
+		
+		Grade grade1 = new Grade("Best 3 out of 4", "Quiz", 2, 1, 100, 10, list);
+		
+		Average avg = new Average("average");
+		avg.addGrade(grade1);
+		
+		assertEquals(1000, avg.getOutOf(), 0);
+	}
+	
+	//Test get percentage
+	@Test
+	public void testGetPercentage()
+	{
+		Course course1 = new Course("Subject1", "Location1", "Instructor1", "email1", 3);
+		Bestof bestof1 = new Bestof("Quiz", 1, 15, 20, 5);
+		Bestof bestof2 = new Bestof("Quiz", 2, 10, 20, 5);
+		Bestof bestof3 = new Bestof("Quiz", 3, 17, 20, 5);
+		ArrayList<Bestof>list = new ArrayList<Bestof>();
+		list.add(bestof1);list.add(bestof2);list.add(bestof3);
+		
+		Grade grade1 = new Grade("Best 2 out of 3", "Quiz", 2, 100, 100, 10, list);
+		
+		Average avg = new Average("average");
+		avg.addGrade(grade1);
+		
+		assertEquals(16, avg.getPercentage(), 0);
+	}
+	
+	//Test get value
+	@Test
+	public void testGetValue()
+	{
+		Course course1 = new Course("Subject1", "Location1", "Instructor1", "email1", 3);
+		Bestof bestof1 = new Bestof("Quiz", 1, 15, 20, 5);
+		Bestof bestof2 = new Bestof("Quiz", 2, 10, 20, 5);
+		Bestof bestof3 = new Bestof("Quiz", 3, 17, 20, 5);
+		ArrayList<Bestof>list = new ArrayList<Bestof>();
+		list.add(bestof1);list.add(bestof2);list.add(bestof3);
+		
+		Grade grade1 = new Grade("Best 2 out of 3", "Quiz", 2, 0, 100, 10, list);
+		
+		Average avg = new Average("average");
+		avg.addGrade(grade1);
+		
+		assertEquals(160, avg.getValue(), 0);				
 	}	
+	
+	//Test scenario for best 5 out of 6
+	@Test
+	public void testBestOf()
+	{
+		Course course1 = new Course("Subject1", "Location1", "Instructor1", "email1", 3);
+		Bestof bestof1 = new Bestof("Quiz", 1, 15, 20, 5);
+		Bestof bestof2 = new Bestof("Quiz", 2, 10, 20, 5);
+		Bestof bestof3 = new Bestof("Quiz", 3, 17, 20, 5);
+		Bestof bestof4 = new Bestof("Quiz", 4, 19, 20, 5);
+		Bestof bestof5 = new Bestof("Quiz", 5, 11, 20, 5);
+		Bestof bestof6 = new Bestof("Quiz", 6, 9, 20, 5);
+		ArrayList<Bestof>list = new ArrayList<Bestof>();
+		list.add(bestof1);list.add(bestof2);list.add(bestof3);
+		list.add(bestof4);list.add(bestof5);list.add(bestof6);
+		
+		Grade grade1 = new Grade("Best 5 out of 6", "Quiz", 5, 0, 100, 10, list);
+		
+		Average avg = new Average("average");
+		avg.addGrade(grade1);
+		
+		assertEquals(14.39, avg.getPercentage(), 0.1);	
+	}
+	
+	//Test scenario where two are zero.
+	@Test
+	public void testBestOfZero()
+	{
+		Course course1 = new Course("Subject1", "Location1", "Instructor1", "email1", 3);
+		Bestof bestof1 = new Bestof("Quiz", 1, 15, 20, 5);
+		Bestof bestof2 = new Bestof("Quiz", 2, 10, 20, 5);
+		Bestof bestof3 = new Bestof("Quiz", 3, 17, 20, 5);
+		Bestof bestof4 = new Bestof("Quiz", 4, 19, 20, 5);
+		Bestof bestof5 = new Bestof("Quiz", 5, 0, 20, 5);
+		Bestof bestof6 = new Bestof("Quiz", 6, 0, 20, 5);
+		ArrayList<Bestof>list = new ArrayList<Bestof>();
+		list.add(bestof1);list.add(bestof2);list.add(bestof3);
+		list.add(bestof4);list.add(bestof5);list.add(bestof6);
+		
+		Grade grade1 = new Grade("Best 5 out of 6", "Quiz", 5, 0, 100, 10, list);
+		
+		Average avg = new Average("average");
+		avg.addGrade(grade1);
+		
+		assertEquals(12.2, avg.getPercentage(), 0.1);	
+	}
+	
+	//Test scenario where final letter depends on best of.
+	@Test
+	public void testBestOfFinalLetter()
+	{
+		
+		Course course1 = new Course("Subject1", "Location1", "Instructor1", "email1", 3);
+		Bestof bestof1 = new Bestof("Quiz", 1, 15, 20, 5);
+		Bestof bestof2 = new Bestof("Quiz", 2, 10, 20, 5);
+		Bestof bestof3 = new Bestof("Quiz", 3, 17, 20, 5);
+		Bestof bestof4 = new Bestof("Quiz", 4, 19, 20, 5);
+		Bestof bestof5 = new Bestof("Quiz", 5, 0, 20, 5);
+		Bestof bestof6 = new Bestof("Quiz", 6, 0, 20, 5);
+		ArrayList<Bestof>list = new ArrayList<Bestof>();
+		list.add(bestof1);list.add(bestof2);list.add(bestof3);
+		list.add(bestof4);list.add(bestof5);list.add(bestof6);
+		
+		Grade grade1 = new Grade("Best 5 out of 6", "Quiz", 5, 0, 100, 100, list);
+		
+		Average avg = new Average("average");
+		avg.addGrade(grade1);
+		
+		course1.getAverage().addGrade(grade1);
+		
+		course1.setCourseLetter();
+		course1.setCourseGP(course1.getLetterGrade());
+		assertEquals(0.0, course1.getGP(), 0.1);
+	}
+	
+
 }

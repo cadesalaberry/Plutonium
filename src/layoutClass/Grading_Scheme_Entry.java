@@ -1,5 +1,7 @@
 package layoutClass;
 
+import java.util.ArrayList;
+
 import structures.Data;
 import android.app.Activity;
 import android.app.Dialog;
@@ -122,10 +124,31 @@ public class Grading_Scheme_Entry extends Activity {
 					Data.currentGPAentry.setGradePoint(Double.parseDouble(gradePointValue));
 					Data.currentGPAentry.setPercentLow(percent1);
 					Data.currentGPAentry.setPercentHigh(percent2);
-				
-					finish();
-					Intent intent = new Intent(getApplicationContext(), Grading_Scheme.class);
-					startActivity(intent);
+					
+					if(percent1 >= percent2) {
+						final Dialog errorPopUp = new Dialog(context);
+						
+						errorPopUp.setCanceledOnTouchOutside(false);
+			        	errorPopUp.requestWindowFeature(Window.FEATURE_NO_TITLE);
+			        	errorPopUp.setContentView(R.layout.grading_scheme_entry_error);
+			        	
+			        	Button ok = (Button) errorPopUp.findViewById(R.id.grading_scheme_entry_ok_button);
+			        	
+			        	ok.setOnClickListener(new OnClickListener () {
+
+							@Override
+							public void onClick(View v) {
+								// TODO Auto-generated method stub
+								errorPopUp.dismiss();
+							}
+			        	});
+			        	errorPopUp.show();
+					}
+					else {
+						finish();
+						Intent intent = new Intent(getApplicationContext(), Grading_Scheme.class);
+						startActivity(intent);
+					}
 				}
 			}
     	});

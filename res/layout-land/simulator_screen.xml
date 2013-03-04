@@ -1,0 +1,159 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000" >
+
+    <TextView
+        android:id="@+id/grading_scheme_letter_grade_text"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="19dp"
+        android:text="LETTER GRADE"
+        android:textColor="#FFFFFF"
+        android:textSize="12dp" />
+
+    <Button
+        android:id="@+id/grading_scheme_back_button"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="14dp"
+        android:onClick="backGradingScheme"
+        android:text="Back"
+        android:textColor="#FFFFFF" />
+
+    <TextView
+        android:id="@+id/CGPA_SimText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/grading_scheme_letter_grade_text"
+        android:layout_below="@+id/grading_scheme_ok_button"
+        android:layout_marginTop="16dp"
+        android:text="Current cGPA"
+        android:textColor="#FFFFFF"
+        android:textSize="20dp" />
+
+    <TextView
+        android:id="@+id/SimulatedGPA_Text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/CGPA_SimText"
+        android:layout_below="@+id/CGPA_SimText"
+        android:text="Simulated cGPA"
+        android:textColor="#FFFFFF"
+        android:textSize="20dp" />
+
+    <Spinner
+        android:id="@+id/simletter_grades_spinner"
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/grading_scheme_letter_grade_text"
+        android:layout_alignTop="@+id/grading_scheme_letter_grade_text"
+        android:layout_toRightOf="@+id/grading_scheme_back_button"
+        android:background="#FFFFFF" />
+
+    <TextView
+        android:id="@+id/course_credits_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/simletter_grades_spinner"
+        android:layout_toRightOf="@+id/CGPA_SimText"
+        android:text="Credits"
+        android:textColor="@android:color/white"
+        android:textSize="20dp" />
+
+    <Spinner
+        android:id="@+id/course_credits_spinner"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/course_credits_text"
+        android:layout_alignTop="@+id/simletter_grades_spinner"
+        android:layout_marginLeft="23dp"
+        android:layout_toRightOf="@+id/course_credits_text"
+        android:background="#FFFFFF" />
+
+    <EditText
+        android:id="@+id/AddedGPA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/course_credits_spinner"
+        android:layout_alignLeft="@+id/simgrading_scheme_list"
+        android:layout_alignParentRight="true"
+        android:ems="10"
+        android:text="Added GPA"
+        android:textColor="#FFFFFF"
+        android:textSize="14dp" />
+
+    <ListView
+        android:id="@+id/simgrading_scheme_list"
+        android:layout_width="100dp"
+        android:layout_height="230dp"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/AddedGPA"
+        android:background="#FFFFFF"
+        android:divider="#000000"
+        android:dividerHeight="1dp"
+        android:textColor="#000000" >
+    </ListView>
+
+    <ListView
+        android:id="@+id/simList"
+        android:layout_width="100dp"
+        android:layout_height="230dp"
+        android:layout_alignTop="@+id/simgrading_scheme_list"
+        android:layout_marginRight="24dp"
+        android:layout_toLeftOf="@+id/simgrading_scheme_list"
+        android:background="#FFFFFF"
+        android:divider="#000000"
+        android:dividerHeight="1dp"
+        android:textColor="#000000" >
+    </ListView>
+
+    <EditText
+        android:id="@+id/GradingSchemeText"
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/simList"
+        android:layout_alignRight="@+id/simList"
+        android:ems="10"
+        android:text="Grading Scheme"
+        android:textColor="#FFFFFF"
+        android:textSize="14dp" />
+
+    <Button
+        android:id="@+id/grading_scheme_ok_button"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/grading_scheme_letter_grade_text"
+        android:layout_alignTop="@+id/simList"
+        android:layout_marginTop="14dp"
+        android:onClick="addGradingScheme"
+        android:text="Add"
+        android:textColor="#FFFFFF" />
+
+    <TextView
+        android:id="@+id/CGPA_SimBox"
+        android:layout_width="50dp"
+        android:layout_height="20dp"
+        android:layout_alignBottom="@+id/CGPA_SimText"
+        android:layout_alignTop="@+id/CGPA_SimText"
+        android:layout_toRightOf="@+id/SimulatedGPA_Text"
+        android:background="#FFFFFF"
+        android:ems="10" />
+
+    <TextView
+        android:id="@+id/SimulatedGPA_Box"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:layout_alignBaseline="@+id/SimulatedGPA_Text"
+        android:layout_alignBottom="@+id/SimulatedGPA_Text"
+        android:layout_alignLeft="@+id/CGPA_SimBox"
+        android:layout_alignRight="@+id/CGPA_SimBox"
+        android:background="#FFFFFF"
+        android:ems="10" />
+
+</RelativeLayout>

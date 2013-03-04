@@ -70,6 +70,7 @@ public class Course_Selection extends Activity {
 	 
 	 for(int i = 0; i < courses.size(); i++) {
 		 courses.get(i).setCourseLetter();
+		 courses.get(i).setCourseGP(courses.get(i).getLetterGrade());
 		 if(courses.get(i).getAverage().getGrades().size() > 0) {
 			 values[i] = courses.get(i).getSubject() + "	Letter:" + courses.get(i).getLetterGrade() + "  " 
 					 + courses.get(i).getAverage().getPercentage() + "%";
