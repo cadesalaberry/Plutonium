@@ -87,6 +87,7 @@
         android:layout_alignLeft="@+id/evaluation_selection_back_button"
         android:layout_alignTop="@+id/TextView01"
         android:textColor="#FFFFFF"
+        android:textIsSelectable="true"
         android:textSize="24dp" />
 
     <Button

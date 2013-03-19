@@ -1,4 +1,4 @@
-package layoutClass;
+package layout;
 
 import java.util.ArrayList;
 
@@ -6,7 +6,7 @@ import structures.Course;
 import structures.Data;
 import structures.Semester;
 
-import com.example.grademanager.R;
+import com.example.gpaontherun.R;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -38,8 +38,10 @@ public class Course_Selection extends Activity {
 		setContentView(R.layout.course_selection);
 		courseList = (ListView) findViewById(R.id.course_selection_list);
 		TextView myText = (TextView) findViewById(R.id.TGPA_Box);
-		TextView myText2 = (TextView) findViewById(R.id.Semester_Box);
 		
+		//Semester_Box is said not to be found !
+		//TextView myText2 = (TextView) findViewById(R.id.Semester_Box);
+		TextView myText2 = (TextView) findViewById(R.id.TGPA_Text);
 		/*for(int i = 0; i < Data.createdSemesters.size(); i++) {
 		 if(Data.currentSemester.compareTo((Data.createdSemesters.get(i).getSession().toString() + " " + 
 			Data.createdSemesters.get(i).getYear())) == 0) {
@@ -70,7 +72,6 @@ public class Course_Selection extends Activity {
 	 
 	 for(int i = 0; i < courses.size(); i++) {
 		 courses.get(i).setCourseLetter();
-		 courses.get(i).setCourseGP(courses.get(i).getLetterGrade());
 		 if(courses.get(i).getAverage().getGrades().size() > 0) {
 			 values[i] = courses.get(i).getSubject() + "	Letter:" + courses.get(i).getLetterGrade() + "  " 
 					 + courses.get(i).getAverage().getPercentage() + "%";

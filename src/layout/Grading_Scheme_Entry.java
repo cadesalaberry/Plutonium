@@ -1,6 +1,4 @@
-package layoutClass;
-
-import java.util.ArrayList;
+package layout;
 
 import structures.Data;
 import android.app.Activity;
@@ -19,7 +17,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.AdapterView.OnItemSelectedListener;
 
-import com.example.grademanager.R;
+import com.example.gpaontherun.R;
 
 public class Grading_Scheme_Entry extends Activity {
 	EditText gradePoint;
@@ -124,31 +122,10 @@ public class Grading_Scheme_Entry extends Activity {
 					Data.currentGPAentry.setGradePoint(Double.parseDouble(gradePointValue));
 					Data.currentGPAentry.setPercentLow(percent1);
 					Data.currentGPAentry.setPercentHigh(percent2);
-					
-					if(percent1 >= percent2) {
-						final Dialog errorPopUp = new Dialog(context);
-						
-						errorPopUp.setCanceledOnTouchOutside(false);
-			        	errorPopUp.requestWindowFeature(Window.FEATURE_NO_TITLE);
-			        	errorPopUp.setContentView(R.layout.grading_scheme_entry_error);
-			        	
-			        	Button ok = (Button) errorPopUp.findViewById(R.id.grading_scheme_entry_ok_button);
-			        	
-			        	ok.setOnClickListener(new OnClickListener () {
-
-							@Override
-							public void onClick(View v) {
-								// TODO Auto-generated method stub
-								errorPopUp.dismiss();
-							}
-			        	});
-			        	errorPopUp.show();
-					}
-					else {
-						finish();
-						Intent intent = new Intent(getApplicationContext(), Grading_Scheme.class);
-						startActivity(intent);
-					}
+				
+					finish();
+					Intent intent = new Intent(getApplicationContext(), Grading_Scheme.class);
+					startActivity(intent);
 				}
 			}
     	});

@@ -1,6 +1,6 @@
-package layoutClass;
+package layout;
 
-import com.example.grademanager.R;
+import com.example.gpaontherun.R;
 
 import android.app.Activity;
 import android.content.Intent;

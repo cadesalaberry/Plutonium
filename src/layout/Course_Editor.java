@@ -1,9 +1,9 @@
-package layoutClass;
+package layout;
 
 import structures.Course;
 import structures.Data;
 
-import com.example.grademanager.R;
+import com.example.gpaontherun.R;
 
 import android.app.Activity;
 import android.app.Dialog;

@@ -39,24 +39,7 @@ public class Average extends Grade {
 
 		double value = 0;
 
-		for (Grade grade : breakdown) {
-			if(grade.getBestof() != null) {
-				ArrayList<Bestof> list = grade.getBestof();
-				ArrayList<Double> values = new ArrayList<Double>();
-				
-				for(int i = 0; i < list.size(); i++) {
-					values.add(list.get(i).getValue());
-				}
-				
-				Collections.sort(values);
-				double result = 0;
-				for(int i = values.size() - grade.getTotal(); i < values.size(); i++) {
-					result  += values.get(i);
-				}
-				
-				result = result/grade.getTotal();
-				grade.setGrade(result, 100);
-			}
+		for (Grade grade : breakdown) {		
 			value += grade.getValue() * grade.getCoefficient();
 		}
 

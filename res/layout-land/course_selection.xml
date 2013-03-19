@@ -22,12 +22,12 @@
 
     <Button
         android:id="@+id/course_selection_back_button"
-        android:layout_width="120dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:layout_marginBottom="14dp"
-        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
         android:onClick="backCourseSelection"
         android:text="Back"
         android:textColor="#FFFFFF" />
@@ -36,9 +36,8 @@
         android:id="@+id/course_selection_add_course_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/course_selection_back_button"
-        android:layout_alignBottom="@+id/course_selection_back_button"
-        android:layout_marginLeft="20dp"
+		android:layout_marginBottom="14dp"
+        android:layout_marginRight="20dp"
         android:onClick="addCourseCourseSelection"
         android:text="Add Course"
         android:textColor="#FFFFFF" />
@@ -53,26 +52,13 @@
         android:text="Term GPA"
         android:textColor="#FFFFFF"
         android:textSize="20dp" />
-    
-        <TextView
-        android:id="@+id/Semester_Box"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/new_semester_button"
-        android:layout_alignBottom="@+id/new_semester_button"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="160dp"
-        android:textColor="#FFFFFF"
-        android:textSize="20dp"
-        android:ems="10" />
 
         <TextView
             android:id="@+id/TGPA_Box"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignRight="@+id/course_selection_back_button"
-            android:layout_alignTop="@+id/Semester_Box"
+            android:layout_alignBaseline="@+id/TGPA_Text"
             android:layout_marginLeft="450dp"
             android:background="#FFFFFF"
             android:ems="10" />

@@ -1,4 +1,4 @@
-package layoutClass;
+package layout;
 
 import java.util.ArrayList;
 
@@ -7,7 +7,7 @@ import structures.Data;
 import structures.Evaluation;
 import structures.Grade;
 
-import com.example.grademanager.R;
+import com.example.gpaontherun.R;
 
 import android.app.Activity;
 import android.content.Intent;

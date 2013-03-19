@@ -5,33 +5,33 @@
 
     <uses-sdk
         android:minSdkVersion="14"
-        android:targetSdkVersion="15" />
+        android:targetSdkVersion="17" />
     
 
     <application
         android:allowBackup="true"
-        android:icon="@drawable/ic_launcher"
+        android:icon="@drawable/icon"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
-        <activity android:name="layoutClass.New_Semester"></activity>
-        <activity android:name="layoutClass.Course_Editor"></activity>
-        <activity android:name="layoutClass.Course_Selection"></activity>
-        <activity android:name="layoutClass.Grading_Scheme"></activity>
-        <activity android:name="layoutClass.Grading_Scheme_Entry"></activity>
-        <activity android:name="layoutClass.Semester_Grade"></activity>
-        <activity android:name="layoutClass.Semester_Selection">
+        <activity android:name="layout.New_Semester"></activity>
+        <activity android:name="layout.Course_Editor"></activity>
+        <activity android:name="layout.Course_Selection"></activity>
+        <activity android:name="layout.Grading_Scheme"></activity>
+        <activity android:name="layout.Grading_Scheme_Entry"></activity>
+        <activity android:name="layout.Semester_Grade"></activity>
+        <activity android:name="layout.Semester_Selection">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="layoutClass.Evaluation_Editor"></activity>
-        <activity android:name="layoutClass.Evaluation_Selection"></activity>
-        <activity android:name="layoutClass.Best_Of_Menu"></activity>
-        <activity android:name="layoutClass.Best_Of_List"></activity>
-        <activity android:name="layoutClass.Best_Grade_Editor"></activity>
-        <activity android:name="layoutClass.Simulator_screen"></activity>  
+        <activity android:name="layout.Evaluation_Editor"></activity>
+        <activity android:name="layout.Evaluation_Selection"></activity>
+        <activity android:name="layout.Best_Of_Menu"></activity>
+        <activity android:name="layout.Best_Of_List"></activity>
+        <activity android:name="layout.Best_Grade_Editor"></activity>
+        <activity android:name="layout.Simulator_screen"></activity>  
     </application>
     
 

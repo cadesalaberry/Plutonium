@@ -1,4 +1,4 @@
-package layoutClass;
+package layout;
 
 import java.util.ArrayList;
 
@@ -15,7 +15,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.AdapterView.OnItemSelectedListener;
 
-import com.example.grademanager.R;
+import com.example.gpaontherun.R;
 
 public class Best_Of_Menu extends Activity{
 	ArrayAdapter<CharSequence> adapter;
