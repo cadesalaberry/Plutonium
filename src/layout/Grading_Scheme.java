@@ -71,6 +71,11 @@ public class Grading_Scheme extends Activity {
 		schemeList.setAdapter(adapter2);
 	}
 	
+	public void saveGradingScheme(View view) {
+		
+		
+	}
+	
 	public void backGradingScheme(View view) {
 		finish();
 		Intent intent = new Intent(getApplicationContext(), Semester_Selection.class);

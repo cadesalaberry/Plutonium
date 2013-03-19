@@ -1,5 +1,8 @@
 <resources>
 
     <string name="app_name">GPA On The Run</string>
+    <string name="grade">Grade</string>
+    <string name="back">Back</string>
+    <string name="ok">OK</string>
 
 </resources>

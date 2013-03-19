@@ -13,7 +13,7 @@
         android:layout_alignParentTop="true"
         android:text="GRADE POINTS"
         android:textColor="#FFFFFF"
-        android:textSize="12dp" />
+        android:textSize="12sp" />
 
     <EditText
         android:id="@+id/grading_scheme_entry_grade_points_box"
@@ -31,16 +31,16 @@
 
     </EditText>
 
-    <Button
+     <Button
         android:id="@+id/grading_scheme_entry_ok_button"
         android:layout_width="wrap_content"
         android:layout_height="45dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:onClick="saveGradingScheme"
-        android:text="Ok"
+        android:text="@string/ok"
         android:textColor="#FFFFFF" />
-
+     
     <Button
         android:id="@+id/grading_scheme_entry_cancel_button"
         android:layout_width="wrap_content"
@@ -61,13 +61,13 @@
         android:gravity="center"
         android:text="RANGE (%)"
         android:textColor="#FFFFFF"
-        android:textSize="12dp" />
+        android:textSize="12sp" />
 
     <Spinner
         android:id="@+id/grading_scheme_entry_spinner2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/grading_scheme_entry_ok_button"
+        android:layout_above="@+id/grading_scheme_entry_cancel_button"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/grading_scheme_to"
         android:background="#FFFFFF" />
