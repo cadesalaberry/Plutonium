@@ -8,7 +8,6 @@ public class Semester {
 	private int year;
 	private Session session;
 	private ArrayList<Course> courses;
-	private String title;
 	private String comments = "";
 	private double gpaValue;
 	

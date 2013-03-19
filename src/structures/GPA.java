@@ -1,7 +1,5 @@
 package structures;
 
-import java.util.ArrayList;
-
 public class GPA {
 		
 	private double gradePoint;

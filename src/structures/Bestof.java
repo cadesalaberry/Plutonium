@@ -1,5 +1,5 @@
 /**
- * @author cadesalaberry
+ * @author min
  */
 package structures;
 
@@ -10,10 +10,6 @@ public class Bestof {
 	private double value;
 	private double coefficient;
 	private double outOf;
-	
-	/*public Grade(String name, double value, double outOf) {
-		this(name, -1, -1, 0);
-	}*/
 	
 	public Bestof(String type, int number, double value, double outOf, double coefficient) {
 		this.setEvalType(type);
@@ -50,6 +46,10 @@ public class Bestof {
 	
 	public double getValue(){
 		return value;
+	}
+	
+	public double getNumber(){
+		return number;
 	}
 
 	public double getOutOf(){

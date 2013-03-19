@@ -1,12 +1,6 @@
 package layout;
 
-import java.util.ArrayList;
-
-import structures.Course;
 import structures.Data;
-import structures.Evaluation;
-import structures.Grade;
-import structures.Semester;
 
 import com.example.gpaontherun.R;
 

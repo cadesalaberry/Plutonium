@@ -1,15 +1,11 @@
 package layout;
 
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 import structures.Course;
 import structures.Data;
-import structures.Semester;
 import structures.GPA;
-
-import com.example.gpaontherun.R;
-
+import structures.Semester;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -18,10 +14,12 @@ import android.view.ContextMenu.ContextMenuInfo;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.AdapterView.OnItemClickListener;
+
+import com.example.gpaontherun.R;
 
 public class Semester_Selection extends Activity {
 	ListView semesterList;

@@ -4,25 +4,22 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 import structures.Bestof;
-import structures.Course;
 import structures.Data;
-import structures.Evaluation;
 import structures.Grade;
-
-import com.example.gpaontherun.R;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.ContextMenu;
+import android.view.ContextMenu.ContextMenuInfo;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ContextMenu.ContextMenuInfo;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import com.example.gpaontherun.R;
 
 
 public class Best_Of_List extends Activity {
