@@ -40,7 +40,6 @@ public class CustomBestView extends ArrayAdapter<String>{
 		sortedMarks = new ArrayList<Double>();
 		numMarks = new ArrayList<Double>();
 		boolean found = false;
-		int index = 0;
 		double mark =1;
 		for(int i = 0; i < marks.length; i++) {
 			String txt = marks[i];
