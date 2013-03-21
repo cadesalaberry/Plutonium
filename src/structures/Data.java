@@ -15,4 +15,5 @@ public class Data {
 	public static ArrayList<Semester> createdSemesters;	
 	public static ArrayList<GPA> gpaValue;
 	public static ArrayList<GPA> simgpaValue;
+	public static ArrayList<String> gpaCredits;
 }

@@ -1,18 +1,20 @@
 package structures;
 
 public class GPA {
-		
+	
+	private int id;
 	private double gradePoint;
 	private double percentLow;
 	private double percentHigh;
 	private String letterGrade;
 	
 	
-	public GPA(double gradePointValue, double percentLow, double percentHigh, String letterGradeValue){
+	public GPA(double gradePointValue, double percentLow, double percentHigh, String letterGradeValue, int id){
 		this.percentLow = percentLow;
 		this.percentHigh = percentHigh;
 		this.gradePoint = gradePointValue;
-		this.letterGrade = letterGradeValue;	
+		this.letterGrade = letterGradeValue;
+		this.id = id;
 	}
 	
 	public GPA(String letterGradeValue){
@@ -23,7 +25,9 @@ public class GPA {
 		}
 	}
 
-	
+	public int getId() {
+		return this.id;
+	}
 	public void setLetterGrade(String letter){
 		this.letterGrade = letter;
 	}

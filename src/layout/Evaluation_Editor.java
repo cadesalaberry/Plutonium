@@ -90,7 +90,7 @@ public class Evaluation_Editor extends Activity implements OnItemSelectedListene
 			}
 			
 			for(int i = 0; i < 100; i++) {
-				if(Data.currentGrade.getCoefficient() == (i+1)) {
+				if(Data.currentGrade.getCoefficient() == (i)) {
 					weight.setSelection((i));
 					break;
 				}

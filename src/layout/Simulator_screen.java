@@ -10,6 +10,7 @@ import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.ContextMenu;
 import android.view.ContextMenu.ContextMenuInfo;
@@ -52,7 +53,6 @@ public class Simulator_screen extends Activity implements OnItemSelectedListener
 	String simgpa;	
 	Spinner courseCredits;
 	String credits;
-	ArrayList<String> gpaCredits = new ArrayList<String>();	
 	Semester tempSemester;
 	ArrayList<Course> tempCoursesList = new ArrayList<Course>();
 	Course tempCourse;
@@ -107,12 +107,12 @@ public class Simulator_screen extends Activity implements OnItemSelectedListener
 		for(int i = 0; i < Data.gpaValue.size(); i++) {
 			values[i] = Data.gpaValue.get(i).getLetterGrade() + " " + Data.gpaValue.get(i).getGradePoint();
 		}
-		adapter2 = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, android.R.id.text1, values);
+		adapter2 = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, values);
 		
-		for(int i = 0; i < Data.simgpaValue.size(); i++) {
-			gpas[i] = Data.simgpaValue.get(i).getLetterGrade() + " Credits: " + gpaCredits.get(i);
+		for(int j = 0; j < Data.simgpaValue.size(); j++) {
+			gpas[j] = Data.simgpaValue.get(j).getLetterGrade() + " Credits: " + Data.gpaCredits.get(j);
 		}
-		adapter3 = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, android.R.id.text2, gpas);
+		adapter3 = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, gpas);
 		
 		if(Data.createdSemesters.size() != 0) {
 			for(int i = 0; i < Data.createdSemesters.size(); i++) {
@@ -135,11 +135,23 @@ public class Simulator_screen extends Activity implements OnItemSelectedListener
 		}
 		myText.setText(String.valueOf(cgpa));
 		
+		if(gpa >= 3.7)
+			myText.setTextColor(Color.BLUE);
+		else if(gpa >= 3.0)
+			myText.setTextColor(Color.GREEN);
+		else if(gpa >= 2.4)
+			myText.setTextColor(Color.YELLOW);
+		else if(gpa >= 2.0)
+			myText.setTextColor(0xFFF06D2F);
+		else if(gpa >= 0.0)
+			myText.setTextColor(Color.RED);
+		
+		tempCredit = 0;
 		if(Data.simgpaValue.size() != 0) {
 			sgpa = gpa*totalCredit;
-			for(int i = 0; i < gpaCredits.size(); i++) {
-				sgpa = sgpa + Data.simgpaValue.get(i).getGradePoint()*Double.parseDouble(gpaCredits.get(i));
-				tempCredit = tempCredit + Double.parseDouble(gpaCredits.get(i));
+			for(int i = 0; i < Data.gpaCredits.size(); i++) {
+				sgpa = sgpa + Data.simgpaValue.get(i).getGradePoint()*Double.parseDouble(Data.gpaCredits.get(i));
+				tempCredit = tempCredit + Double.parseDouble(Data.gpaCredits.get(i));
 			}
 		 	sgpa = sgpa/(totalCredit + tempCredit);
 			simgpa = (Double.toString(sgpa));
@@ -148,6 +160,17 @@ public class Simulator_screen extends Activity implements OnItemSelectedListener
 			simgpa = cgpa;
 		}
 		simText.setText(String.valueOf(simgpa));
+		
+		if(sgpa >= 3.7)
+			simText.setTextColor(Color.BLUE);
+		else if(sgpa >= 3.0)
+			simText.setTextColor(Color.GREEN);
+		else if(sgpa >= 2.4)
+			simText.setTextColor(Color.YELLOW);
+		else if(sgpa >= 2.0)
+			simText.setTextColor(0xFFF06D2F);
+		else if(sgpa >= 0.0)
+			simText.setTextColor(Color.RED);
 		
 		schemeList.setAdapter(adapter2);
 		simList.setAdapter(adapter3);
@@ -179,20 +202,22 @@ public class Simulator_screen extends Activity implements OnItemSelectedListener
     public boolean onContextItemSelected(MenuItem item) {  
         if(item.getTitle()=="Delete") {
         	Data.simgpaValue.remove(deletepos);
+        	Data.gpaCredits.remove(deletepos);
         	
 			gpas = new String[Data.simgpaValue.size()];
 			
 			for(int i = 0; i < Data.simgpaValue.size(); i++) {
-				gpas[i] = Data.simgpaValue.get(i).getLetterGrade() + " Credits: " + gpaCredits.get(i);
+				gpas[i] = Data.simgpaValue.get(i).getLetterGrade() + " Credits: " + Data.gpaCredits.get(i);
 			}
 			adapter3 = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, gpas);
 			simList.setAdapter(adapter3);
 			
+			tempCredit = 0;
 			if(Data.simgpaValue.size() != 0) {
 				sgpa = gpa*totalCredit;
-				for(int i = 0; i < gpaCredits.size(); i++) {
-					sgpa = sgpa + Data.simgpaValue.get(i).getGradePoint()*Double.parseDouble(gpaCredits.get(i));
-					tempCredit = tempCredit + Double.parseDouble(gpaCredits.get(i));
+				for(int i = 0; i < Data.gpaCredits.size(); i++) {
+					sgpa = sgpa + Data.simgpaValue.get(i).getGradePoint()*Double.parseDouble(Data.gpaCredits.get(i));
+					tempCredit = tempCredit + Double.parseDouble(Data.gpaCredits.get(i));
 				}
 			 	sgpa = sgpa/(totalCredit + tempCredit);
 				simgpa = (Double.toString(sgpa));
@@ -201,6 +226,18 @@ public class Simulator_screen extends Activity implements OnItemSelectedListener
 				simgpa = cgpa;
 			}
 			simText.setText(String.valueOf(simgpa));
+			
+			if(sgpa >= 3.7)
+				simText.setTextColor(Color.BLUE);
+			else if(sgpa >= 3.0)
+				simText.setTextColor(Color.GREEN);
+			else if(sgpa >= 2.4)
+				simText.setTextColor(Color.YELLOW);
+			else if(sgpa >= 2.0)
+				simText.setTextColor(0xFFF06D2F);
+			else if(sgpa >= 0.0)
+				simText.setTextColor(Color.RED);
+			
 			}  
         else {return false;}  
     return true;  
@@ -210,7 +247,7 @@ public class Simulator_screen extends Activity implements OnItemSelectedListener
 		boolean found = false;
 		
 		for(int i = 0; i < Data.gpaValue.size(); i++) {
-			if(Data.gpaValue.get(i).getLetterGrade().equals(letterGrade))
+			if(GPA.getGP(letterGrade) != 0)
 				found = true;
 		}
 		
@@ -236,21 +273,22 @@ public class Simulator_screen extends Activity implements OnItemSelectedListener
 		else {
 			GPA gpaEntry = new GPA(letterGrade);
 			Data.simgpaValue.add(gpaEntry);
-			gpaCredits.add(credits);
+			Data.gpaCredits.add(credits);
+			tempCredit = 0;
 			
 			gpas = new String[Data.simgpaValue.size()];
 		
 			for(int i = 0; i < Data.simgpaValue.size(); i++) {
-				gpas[i] = Data.simgpaValue.get(i).getLetterGrade() + " Credits: " + gpaCredits.get(i);
+				gpas[i] = Data.simgpaValue.get(i).getLetterGrade() + " Credits: " + Data.gpaCredits.get(i);
 			}
 			adapter3 = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, gpas);
 			simList.setAdapter(adapter3);
 			
 			if(Data.simgpaValue.size() != 0) {
 				sgpa = gpa*totalCredit;
-				for(int i = 0; i < gpaCredits.size(); i++) {
-					sgpa = sgpa + Data.simgpaValue.get(i).getGradePoint()*Double.parseDouble(gpaCredits.get(i));
-					tempCredit = tempCredit + Double.parseDouble(gpaCredits.get(i));
+				for(int i = 0; i < Data.gpaCredits.size(); i++) {
+					sgpa = sgpa + Data.simgpaValue.get(i).getGradePoint()*Double.parseDouble(Data.gpaCredits.get(i));
+					tempCredit = tempCredit + Double.parseDouble(Data.gpaCredits.get(i));
 				}
 			 	sgpa = sgpa/(totalCredit + tempCredit);
 				simgpa = (Double.toString(sgpa));
@@ -259,6 +297,17 @@ public class Simulator_screen extends Activity implements OnItemSelectedListener
 				simgpa = cgpa;
 			}
 			simText.setText(String.valueOf(simgpa));
+
+			if(sgpa >= 3.7)
+				simText.setTextColor(Color.BLUE);
+			else if(sgpa >= 3.0)
+				simText.setTextColor(Color.GREEN);
+			else if(sgpa >= 2.4)
+				simText.setTextColor(Color.YELLOW);
+			else if(sgpa >= 2.0)
+				simText.setTextColor(0xFFF06D2F);
+			else if(sgpa >= 0.0)
+				simText.setTextColor(Color.RED);
 		}
 	}
 	

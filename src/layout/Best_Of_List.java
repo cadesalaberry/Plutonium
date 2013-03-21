@@ -1,5 +1,6 @@
 package layout;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -27,7 +28,7 @@ public class Best_Of_List extends Activity {
 	ListView bestofevals;
 	EditText x;
 	TextView y;
-	ArrayAdapter<String> adapter;
+	CustomBestView adapter;
 	ArrayList<Bestof> evals;
 	Bestof oneeval;
 	String[] values;
@@ -71,11 +72,11 @@ public class Best_Of_List extends Activity {
 		
 		 for(int i = 0; i < evals.size(); i++) {
 			
-			 values[i] = name + " " + (i+1) + "    Grade: " + evals.get(i).getValue() 
-					 + " Weight if Chosen: " + (double) evals.get(i).getCoefficient() + " %";
+			 values[i] = name + " " + (i+1) + "    Grade: " + new DecimalFormat("#.##").format(evals.get(i).getValue()) 
+					 + " Weight if Chosen: " + new DecimalFormat("#.##").format((double) evals.get(i).getCoefficient()) + " %";
 		 }
 		
-		adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, android.R.id.text1, values);
+		adapter = new CustomBestView(this, android.R.layout.simple_list_item_1, android.R.id.text1, values);
 		bestofevals.setAdapter(adapter);
 		registerForContextMenu(bestofevals);
 	}

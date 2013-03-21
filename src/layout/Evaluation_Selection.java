@@ -1,5 +1,6 @@
 package layout;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 import structures.Course;
@@ -22,7 +23,7 @@ import com.example.gpaontherun.R;
 public class Evaluation_Selection extends Activity {
 	Course thisCourse;
 	ListView evaluationList;
-	ArrayAdapter<String> adapter;
+	CustomEvaluationView adapter;
 	ArrayList<Grade> evals;
 	String[] values;
 	int deletepos;
@@ -42,11 +43,11 @@ public class Evaluation_Selection extends Activity {
 		
 		 for(int i = 0; i < evals.size(); i++) {
 			
-			 values[i] = evals.get(i).getName() + "   " + "Grade: " + evals.get(i).getValue() 
+			 values[i] = evals.get(i).getName() + "   " + "Grade: " + new DecimalFormat("#.##").format(evals.get(i).getValue()) 
 					 + " Weight: " + (int) evals.get(i).getCoefficient() + " %";
 		 }
 		
-		adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, android.R.id.text1, values);
+		adapter = new CustomEvaluationView(this, android.R.layout.simple_list_item_1, android.R.id.text1, values);
 		evaluationList.setAdapter(adapter);
 		registerForContextMenu(evaluationList);
 	}

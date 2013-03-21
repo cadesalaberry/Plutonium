@@ -92,5 +92,16 @@
         android:text="TO"
         android:textColor="#FFFFFF"
         android:textSize="12dp" />
+    
+    <Button
+        android:id="@+id/grading_scheme_entry_reset"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@+id/grading_scheme_entry_ok_button"
+        android:layout_toRightOf="@+id/grading_scheme_entry_cancel_button"
+        android:layout_alignBaseline="@+id/grading_scheme_entry_cancel_button"
+        android:onClick="resetGradingSchemeEntry"
+        android:text="Reset"
+        android:textColor="#FFFFFF" />
 
 </RelativeLayout>

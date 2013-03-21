@@ -1,5 +1,6 @@
 package layout;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 import structures.Course;
@@ -10,6 +11,7 @@ import com.example.gpaontherun.R;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.ContextMenu;
 import android.view.ContextMenu.ContextMenuInfo;
@@ -27,6 +29,7 @@ public class Course_Selection extends Activity {
 	String[] values;
 	ArrayAdapter<String> adapter;
 	ListView courseList;
+	CustomListView adapters;
 	public static int coursepos;
 	int deletepos;
 	double gpa = 0;
@@ -52,29 +55,14 @@ public class Course_Selection extends Activity {
 	 thisSemester = Data.currentSemester;
 	 courses = thisSemester.getCourses();
 	 
-	 if(courses.size() != 0) {
-		 thisSemester.computeGPA(courses);
-	 	 gpa = thisSemester.getGPA();
-	 	 
-	 	 //gpa double value truncation
-	 	 
-	 	//DecimalFormat decFormat = new DecimalFormat("#.##");
-	 	//tgpa = decFormat.format(gpa);
-	 	 tgpa = Double.toString(gpa);
-	 }
-	 else {
-		 tgpa = "N/A";
-	 }
-	 
-	 myText.setText(tgpa);
-	 myText2.setText(thisSemester.toString());
 	 values = new String[courses.size()];
 	 
 	 for(int i = 0; i < courses.size(); i++) {
-		 courses.get(i).setCourseLetter();
+		courses.get(i).setCourseLetter();
+		courses.get(i).setCourseGP(courses.get(i).getLetterGrade());
 		 if(courses.get(i).getAverage().getGrades().size() > 0) {
 			 values[i] = courses.get(i).getSubject() + "	Letter:" + courses.get(i).getLetterGrade() + "  " 
-					 + courses.get(i).getAverage().getPercentage() + "%";
+					 + new DecimalFormat("#.##").format(courses.get(i).getAverage().getPercentage()) + "%";
 		 }
 		 else {
 			 values[i] = courses.get(i).getSubject() + "    Letter:" + courses.get(i).getLetterGrade() + "  " 
@@ -82,8 +70,32 @@ public class Course_Selection extends Activity {
 		 }
 	 }
 	 
-	 adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, android.R.id.text1, values);
+	 if(courses.size() != 0) {
+		 thisSemester.computeGPA(courses);
+	 	 gpa = thisSemester.getGPA(); 	 
+	 	
+	 	 tgpa = new DecimalFormat("#.##").format(gpa);
+	 }
+	 else {
+		 tgpa = "N/A";
+	 }
 	 
+	 myText.setText(tgpa);
+		if(gpa >= 3.7)
+			myText.setTextColor(Color.BLUE);
+		else if(gpa >= 3.0)
+			myText.setTextColor(Color.GREEN);
+		else if(gpa >= 2.4)
+			myText.setTextColor(Color.YELLOW);
+		else if(gpa >= 2.0)
+			myText.setTextColor(0xFFF06D2F);
+		else if(gpa >= 0.0)
+			myText.setTextColor(Color.RED);
+	 myText2.setText(thisSemester.toString());
+	 
+	 //adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, android.R.id.text1, values);
+	 adapters = new CustomListView(this, android.R.layout.simple_list_item_1, android.R.id.text1, values);	 
+
 	 courseList.setOnItemClickListener(new OnItemClickListener() { 
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -96,7 +108,7 @@ public class Course_Selection extends Activity {
 		});
 	 
 	 
-	 courseList.setAdapter(adapter);
+	 courseList.setAdapter(adapters);
 	 registerForContextMenu(courseList);
 	}
 	

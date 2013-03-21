@@ -1,0 +1,58 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000" >
+
+
+
+    <ExpandableListView
+        android:id="@android:id/list"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@+id/grade_history_back"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/grade_history_title"
+        android:layout_marginTop="8dp"
+        android:background="#FFFFFF" >
+
+    </ExpandableListView>
+
+    <TextView
+        android:id="@+id/grade_history_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp"
+        android:text="Grade History"
+        android:textColor="#FFFFFF"
+        android:textSize="18dp" />
+
+    <Button
+        android:id="@+id/grade_history_back"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="20dp"
+        android:text="Back"
+        android:onClick="backGradeHistory"
+        android:textColor="#FFFFFF" />
+
+    <Button
+        android:id="@+id/grade_history_graph"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginRight="20dp"
+        android:textColor="#FFFFFF"
+        android:text="Graph" />
+
+</RelativeLayout>

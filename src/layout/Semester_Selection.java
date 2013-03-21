@@ -1,5 +1,6 @@
 package layout;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 import structures.Course;
@@ -8,6 +9,7 @@ import structures.GPA;
 import structures.Semester;
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.ContextMenu;
 import android.view.ContextMenu.ContextMenuInfo;
@@ -46,23 +48,59 @@ public class Semester_Selection extends Activity {
 			Data.createdSemesters = new ArrayList<Semester>();
 			Data.gpaValue = new ArrayList<GPA>();
 			Data.simgpaValue = new ArrayList<GPA>();
+			Data.gpaCredits = new ArrayList<String>();	
 			Data.dataLoaded = true;
 			
-			Data.gpaValue.add(new GPA(0, 0, 0, "A+"));
-			Data.gpaValue.add(new GPA(0, 0, 0, "A"));
-			Data.gpaValue.add(new GPA(0, 0, 0, "A-"));
-			Data.gpaValue.add(new GPA(0, 0, 0, "B+"));
-			Data.gpaValue.add(new GPA(0, 0, 0, "B"));
-			Data.gpaValue.add(new GPA(0, 0, 0, "B-"));
-			Data.gpaValue.add(new GPA(0, 0, 0, "C+"));
-			Data.gpaValue.add(new GPA(0, 0, 0, "C"));
-			Data.gpaValue.add(new GPA(0, 0, 0, "C-"));
-			Data.gpaValue.add(new GPA(0, 0, 0, "D"));
-			Data.gpaValue.add(new GPA(0, 0, 0, "F"));
+			Data.gpaValue.add(new GPA(0, 0, 0, "A+", 0));
+			Data.gpaValue.add(new GPA(0, 0, 0, "A", 1));
+			Data.gpaValue.add(new GPA(0, 0, 0, "A-", 2));
+			Data.gpaValue.add(new GPA(0, 0, 0, "B+", 3));
+			Data.gpaValue.add(new GPA(0, 0, 0, "B", 4));
+			Data.gpaValue.add(new GPA(0, 0, 0, "B-", 5));
+			Data.gpaValue.add(new GPA(0, 0, 0, "C+", 6));
+			Data.gpaValue.add(new GPA(0, 0, 0, "C", 7));
+			Data.gpaValue.add(new GPA(0, 0, 0, "C-", 8));
+			Data.gpaValue.add(new GPA(0, 0, 0, "D", 9));
+			Data.gpaValue.add(new GPA(0, 0, 0, "F", 10));
 		}
 		
 		values = new String[Data.createdSemesters.size()];
-		
+
+		if(Data.createdSemesters.size() != 0) {
+			for(int i = 0; i < Data.createdSemesters.size(); i++) {
+				tempSemester = Data.createdSemesters.get(i);
+				totalCredit = totalCredit + Data.createdSemesters.get(i).getCredits();
+				tempCoursesList = tempSemester.getCourses();
+				for(int j = 0; j < tempCoursesList.size(); j++) {
+					tempCourse = tempCoursesList.get(j);
+					tempCourse.setCourseLetter();
+					tempCourse.setCourseGP(tempCourse.getLetterGrade());
+				}
+				if(tempCoursesList.size() != 0) {
+					gpa = gpa + (tempCourse.getCredit() * tempCourse.getGP());
+				}
+			}
+			if(tempCourse != null)
+				gpa = gpa/totalCredit;		 	
+			else
+				gpa = 0;
+			cgpa = new DecimalFormat("#.##").format(gpa);
+		}
+		else {
+			cgpa = "N/A";
+		}
+		myText.setText(String.valueOf(cgpa));
+		if(gpa >= 3.7)
+			myText.setTextColor(Color.BLUE);
+		else if(gpa >= 3.0)
+			myText.setTextColor(Color.GREEN);
+		else if(gpa >= 2.4)
+			myText.setTextColor(Color.YELLOW);
+		else if(gpa >= 2.0)
+			myText.setTextColor(0xFFF06D2F);
+		else if(gpa >= 0.0)
+			myText.setTextColor(Color.RED);
+				
 		for(int i = 0; i < Data.createdSemesters.size(); i++) {
 			if(Data.createdSemesters.get(i).getCourses().size() != 0) {
 				for(int j = 0; j < Data.createdSemesters.get(i).getCourses().size(); j++) {
@@ -86,27 +124,7 @@ public class Semester_Selection extends Activity {
 			startActivity(intent);
 			}
 		});
-		
-		if(Data.createdSemesters.size() != 0) {
-			for(int i = 0; i < Data.createdSemesters.size(); i++) {
-				tempSemester = Data.createdSemesters.get(i);
-				totalCredit = totalCredit + Data.createdSemesters.get(i).getCredits();
-				tempCoursesList = tempSemester.getCourses();
-				for(int j = 0; j < tempCoursesList.size(); j++) {
-					tempCourse = tempCoursesList.get(j);
-					gpa = gpa + tempCourse.getGP()*tempCourse.getCredit();
-				}
-			}
-			if(tempCourse != null)
-				gpa = gpa/totalCredit;		 	
-			else
-				gpa = 0;
-			cgpa = (Double.toString(gpa));
-		}
-		else {
-			cgpa = "N/A";
-		}
-		myText.setText(String.valueOf(cgpa));
+
 		semesterList.setAdapter(adapter);
 		registerForContextMenu(semesterList);
 	}
@@ -153,7 +171,7 @@ public class Semester_Selection extends Activity {
 	
 	public void gradesSemester(View view) {
 		finish();
-		Intent intent = new Intent(getApplicationContext(), Semester_Grade.class);
+		Intent intent = new Intent(getApplicationContext(), Grade_history.class);
 		startActivity(intent);
 	}
 	
