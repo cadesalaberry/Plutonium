@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.gpaontherun"
-    android:versionCode="8"
-    android:versionName="1.8 Alpha" >
+    android:versionCode="9"
+    android:versionName="1.9 Alpha" >
 
     <uses-sdk
         android:minSdkVersion="14"
@@ -32,7 +32,9 @@
         <activity android:name="layout.Best_Of_Menu"></activity>
         <activity android:name="layout.Best_Of_List"></activity>
         <activity android:name="layout.Best_Grade_Editor"></activity>
-        <activity android:name="layout.Simulator_screen"></activity>  
+        <activity android:name="layout.Simulator_screen"></activity>
+        <activity android:name="layout.Grade_history"></activity>
+        <activity android:name="layout.AdvancedGraph"></activity>
     </application>
     
 

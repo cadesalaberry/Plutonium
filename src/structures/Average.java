@@ -30,6 +30,7 @@ public class Average extends Grade {
 		breakdown.remove(grade);
 	}
 
+	@Override
 	public String getName() {
 		return this.name;
 	}

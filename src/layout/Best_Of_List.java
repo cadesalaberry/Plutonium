@@ -72,7 +72,7 @@ public class Best_Of_List extends Activity {
 		 for(int i = 0; i < evals.size(); i++) {
 			
 			 values[i] = name + " " + (i+1) + "    Grade: " + new DecimalFormat("#.##").format(evals.get(i).getValue()) 
-					 + " Weight if Chosen: " + new DecimalFormat("#.##").format((double) evals.get(i).getCoefficient()) + " %";
+					 + " Weight if Chosen: " + new DecimalFormat("#.##").format(evals.get(i).getCoefficient()) + " %";
 		 }
 		
 		adapter = new CustomBestView(this, android.R.layout.simple_list_item_1, android.R.id.text1, values);
@@ -80,6 +80,7 @@ public class Best_Of_List extends Activity {
 		registerForContextMenu(bestofevals);
 	}
 	
+	@Override
 	public void onCreateContextMenu(ContextMenu menu, View v,ContextMenuInfo menuInfo) {  
 		super.onCreateContextMenu(menu, v, menuInfo);  
 		AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) menuInfo;
@@ -142,7 +143,7 @@ public class Best_Of_List extends Activity {
 		for(int i = (values.size() - thisGrade.getTotal()) ; i < values.size(); i++) {
 			result += values.get(i);
 		}
-		result = result / (double) thisGrade.getTotal();
+		result = result / thisGrade.getTotal();
 		thisGrade.setGrade(result, 100);
 		
 		finish();

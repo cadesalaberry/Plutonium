@@ -12,7 +12,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-public class CustomBestView extends ArrayAdapter<String>{
+public class CustomBestView extends ArrayAdapter<String> {
 	String[] marks;
 	ArrayList<Double> bestMarks = new ArrayList<Double>();
 	ArrayList<Double> sortedMarks = new ArrayList<Double>();
@@ -21,18 +21,19 @@ public class CustomBestView extends ArrayAdapter<String>{
 	int pass;
 	Grade thisGrade;
 
-	public CustomBestView(Context context, int layout, int textViewResourceId, String[] values) {
+	public CustomBestView(Context context, int layout, int textViewResourceId,
+			String[] values) {
 		super(context, layout, textViewResourceId, values);
 		marks = values;
 		pass = 0;
 		bestMarks = new ArrayList<Double>();
 		sortedMarks = new ArrayList<Double>();
 		numMarks = new ArrayList<Double>();
-		thisGrade = Data.currentGrade;	
+		thisGrade = Data.currentGrade;
 		best = thisGrade.getTotal();
 
 	}
-	
+
 	@Override
 	public View getView(int position, View v, ViewGroup parent) {
 		View myView = super.getView(position, v, parent);
@@ -40,57 +41,80 @@ public class CustomBestView extends ArrayAdapter<String>{
 		sortedMarks = new ArrayList<Double>();
 		numMarks = new ArrayList<Double>();
 		boolean found = false;
-		double mark =1;
-		for(int i = 0; i < marks.length; i++) {
+		int index = 0;
+		double mark = 1;
+		for (int i = 0; i < marks.length; i++) {
 			String txt = marks[i];
 			String temp = "";
 			int beginIndex = 0;
 			int endIndex = 0;
 			char value;
-			for(int j = txt.length() - 30; j < txt.length(); j++) {
+			for (int j = txt.length() - 30; j < txt.length(); j++) {
 				value = txt.charAt(j);
-				if(value == ':') {
+				if (value == ':') {
 					beginIndex = j + 1;
 				}
-				if(value == 'W' && beginIndex != 0) {
+				if (value == 'W' && beginIndex != 0) {
 					endIndex = j - 1;
-					temp = txt.substring(beginIndex+1, endIndex);
+					temp = txt.substring(beginIndex + 1, endIndex);
 					break;
-				}		
+				}
 			}
 			numMarks.add(Double.parseDouble(temp));
 			sortedMarks.add(Double.parseDouble(temp));
 		}
 		sort(sortedMarks);
-		
-		for(int i = 0; i < best; i++) {
+
+		for (int i = 0; i < best; i++) {
 			bestMarks.add(sortedMarks.get(i));
 		}
-		
-		for(int j = 0; j < bestMarks.size(); j++) {
+
+		for (int j = 0; j < bestMarks.size(); j++) {
 			mark = numMarks.get(position);
-			if(mark == bestMarks.get(j))
+			if (mark == bestMarks.get(j))
 				found = true;
 		}
-		
-		if(found == true) {			
-			if(mark >= 80)
+
+		if (found == true) {
+			if (getLetterGradeWithPercentageGrade(mark).equals("A+")
+					|| getLetterGradeWithPercentageGrade(mark).equals("A")
+					|| getLetterGradeWithPercentageGrade(mark).equals("A-"))
 				((TextView) myView).setTextColor(Color.BLUE);
-			else if(mark >= 70)
+			else if (getLetterGradeWithPercentageGrade(mark).equals("B+")
+					|| getLetterGradeWithPercentageGrade(mark).equals("B"))
 				((TextView) myView).setTextColor(Color.GREEN);
-			else if(mark >= 60)
+			else if (getLetterGradeWithPercentageGrade(mark).equals("B-")
+					|| getLetterGradeWithPercentageGrade(mark).equals("C+"))
 				((TextView) myView).setTextColor(Color.YELLOW);
-			else if(mark >= 55)
+			else if (getLetterGradeWithPercentageGrade(mark).equals("C")
+					|| getLetterGradeWithPercentageGrade(mark).equals("C-"))
 				((TextView) myView).setTextColor(0xFFF06D2F);
-			else if(mark >= 1)
+			else
 				((TextView) myView).setTextColor(Color.RED);
 		}
-		//((TextView) myView).setText(Integer.toString(best));
 		return myView;
 	}
-	
+
 	public void sort(ArrayList<Double> list) {
 		Collections.sort(list);
 		Collections.reverse(list);
+	}
+
+	public static String getLetterGradeWithPercentageGrade(
+			double percentageGrade) {
+		String letterGrade = "";
+
+		for (int i = 0; i < Data.gpaValue.size(); i++) {
+			double bottomLimit = Data.gpaValue.get(i).getPercentLow();
+			double upperLimit = Data.gpaValue.get(i).getPercentHigh();
+
+			if (percentageGrade == bottomLimit
+					|| percentageGrade == upperLimit
+					|| (percentageGrade > bottomLimit && percentageGrade < upperLimit)) {
+				letterGrade = Data.gpaValue.get(i).getLetterGrade();
+				break;
+			}
+		}
+		return letterGrade;
 	}
 }

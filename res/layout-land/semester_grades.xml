@@ -22,6 +22,7 @@
         android:layout_centerHorizontal="true"
         android:background="#FFFFFF"
         android:ems="10"
+        android:inputType="textMultiLine"
         android:textSize="16dp" />
 
     <Button

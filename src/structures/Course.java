@@ -61,6 +61,9 @@ public class Course {
 				//this.setGP(Data.gpaValue.get(i).getGradePoint());
 				this.courseGP = Data.gpaValue.get(i).getGradePoint();
 			}
+			else if(letterValue.equals("-")){
+			    this.courseGP = 0;
+			   }
 		}	
 	}
 	
@@ -78,10 +81,12 @@ public class Course {
 				this.courseLetter = Data.gpaValue.get(i).getLetterGrade();
 				break;
 			}
+			else{
+				this.courseLetter = "-";
+			}
 		}
 	}
-	
-	@Deprecated
+
 	public void setLetterGrade(String letter){
 		this.courseLetter = letter;
 	}

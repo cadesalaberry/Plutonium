@@ -1,7 +1,7 @@
 package structures;
 
 public class GPA {
-	
+		
 	private int id;
 	private double gradePoint;
 	private double percentLow;
@@ -13,7 +13,7 @@ public class GPA {
 		this.percentLow = percentLow;
 		this.percentHigh = percentHigh;
 		this.gradePoint = gradePointValue;
-		this.letterGrade = letterGradeValue;
+		this.letterGrade = letterGradeValue;	
 		this.id = id;
 	}
 	

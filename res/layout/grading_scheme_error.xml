@@ -23,7 +23,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="15dp"
         android:gravity="center"
-        android:text="The grade points field is empty, out of range, or an invalid percentage value."
+        android:text="The grade points field is empty, its value is out of range, or invalid percentage values."
         android:textColor="#FFFFFF"
         android:textSize="15dp" />
 

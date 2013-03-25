@@ -1,11 +1,8 @@
 package layout;
 
-
-
 import structures.Data;
 
 import com.example.gpaontherun.R;
-
 import android.app.Activity;
 
 import android.content.Context;
@@ -37,48 +34,49 @@ public class Grading_Scheme extends Activity {
 	double percent2;
 	final Context context = this;
 	int deletepos;
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
+		this.getWindow().setSoftInputMode(
+				WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 		setContentView(R.layout.grading_scheme);
-		
+
 		schemeList = (ListView) findViewById(R.id.grading_scheme_list);
-		
+
 		values = new String[Data.gpaValue.size()];
-		
-		for(int i = 0; i < Data.gpaValue.size(); i++) {
-			values[i] = Data.gpaValue.get(i).getLetterGrade() + " " + Data.gpaValue.get(i).getGradePoint() + 
-					"   Range:" + Data.gpaValue.get(i).getPercentLow() + "-" + Data.gpaValue.get(i).getPercentHigh() +"%";
+
+		for (int i = 0; i < Data.gpaValue.size(); i++) {
+			values[i] = Data.gpaValue.get(i).getLetterGrade() + " "
+					+ Data.gpaValue.get(i).getGradePoint() + "   Range:"
+					+ Data.gpaValue.get(i).getPercentLow() + "-"
+					+ Data.gpaValue.get(i).getPercentHigh() + "%";
 		}
-		adapter2 = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, android.R.id.text1, values);
-		
+		adapter2 = new ArrayAdapter<String>(this,
+				android.R.layout.simple_list_item_1, android.R.id.text1, values);
+
 		schemeList.setOnItemClickListener(new OnItemClickListener() {
 
 			@Override
 			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
 					long arg3) {
-				// TODO Auto-generated method stub		
-	        	Data.currentGPAentry = Data.gpaValue.get(arg2); 
-	        	
-	        	finish();
-	        	Intent intent = new Intent(getApplicationContext(), Grading_Scheme_Entry.class);
-	        	startActivity(intent);
+				// TODO Auto-generated method stub
+				Data.currentGPAentry = Data.gpaValue.get(arg2);
+
+				finish();
+				Intent intent = new Intent(getApplicationContext(),
+						Grading_Scheme_Entry.class);
+				startActivity(intent);
 			}
-			
+
 		});
 		schemeList.setAdapter(adapter2);
 	}
-	
-	public void saveGradingScheme(View view) {
-		
-		
-	}
-	
+
 	public void backGradingScheme(View view) {
 		finish();
-		Intent intent = new Intent(getApplicationContext(), Semester_Selection.class);
+		Intent intent = new Intent(getApplicationContext(),
+				Semester_Selection.class);
 		startActivity(intent);
 	}
 }

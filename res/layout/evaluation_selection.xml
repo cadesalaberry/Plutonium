@@ -33,18 +33,6 @@
         android:textColor="#FFFFFF" />
 
     <Button
-        android:id="@+id/evaluation_selection_back_button"
-        android:layout_width="130dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="5dp"
-        android:onClick="backEvaluationSelection"
-        android:text="Back"
-        android:textColor="#FFFFFF" />
-
-    <Button
         android:id="@+id/evaulation_selection_bestof_button"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp"
@@ -56,5 +44,25 @@
         android:onClick="bestOfEvaluationSelection"
         android:text="Add best x out of y"
         android:textColor="#FFFFFF" />
+
+        <Button
+            android:id="@+id/evaluation_selection_back_button"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/evaluation_selection_list"
+            android:layout_alignParentBottom="true"
+            android:onClick="backEvaluationSelection"
+            android:text="Back"
+            android:textColor="#FFFFFF" />
+
+        <Button
+            android:id="@+id/graphbutton"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_alignRight="@+id/evaluation_selection_list"
+            android:layout_below="@+id/evaluation_selection_list"
+            android:onClick="graph"
+            android:text="Graph"
+            android:textColor="#FFFFFF" />
 
 </RelativeLayout>

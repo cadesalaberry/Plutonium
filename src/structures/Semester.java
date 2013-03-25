@@ -107,8 +107,16 @@ public class Semester {
 	 * 
 	 * @return session
 	 */
+	@Override
 	public String toString() {
-		return "" + session + " " + year;
+		
+		String out = session + " " + year + "\n";
+		
+		for (Course c : courses) {
+			out += "\t" + c.getSubject() + "\t" + c.getGP()
+					+ "\t" + c.getLetterGrade();
+		}
+		return out;
 	}
 	
 	/**

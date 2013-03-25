@@ -35,7 +35,7 @@
         android:layout_marginBottom="10dp"
         android:layout_marginTop="200dp"
         android:onClick="gradesSemester"
-        android:text="About"
+        android:text="History"
         android:textColor="#FFFFFF" />
 
 

@@ -43,7 +43,8 @@
         android:onClick="backGradeHistory"
         android:textColor="#FFFFFF" />
 
-    <Button
+<!-- 
+    <!Button
         android:id="@+id/grade_history_graph"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
@@ -54,5 +55,18 @@
         android:layout_marginRight="20dp"
         android:textColor="#FFFFFF"
         android:text="Graph" />
+-->
+
+        <Button
+            android:id="@+id/about_button"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/grade_history_back"
+            android:layout_alignBottom="@+id/grade_history_back"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20dp"
+            android:onClick="about"
+            android:text="About"
+            android:textColor="#FFFFFF" />
 
 </RelativeLayout>

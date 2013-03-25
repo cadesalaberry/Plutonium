@@ -5,36 +5,52 @@
     android:background="#000000" >
 
     <Button
+        android:id="@+id/best_grade_editor_ok_button"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="56dp"
+        android:onClick="addGrade"
+        android:text="Ok"
+        android:textColor="#FFFFFF" />
+
+    <Button
         android:id="@+id/best_grade_editor_back_button"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
+        android:layout_alignBaseline="@+id/best_grade_editor_ok_button"
+        android:layout_alignBottom="@+id/best_grade_editor_ok_button"
+        android:layout_marginLeft="26dp"
+        android:layout_toRightOf="@+id/best_grade_editor_ok_button"
         android:onClick="backBestList"
-        android:text="@string/back"
+        android:text="Back"
         android:textColor="#FFFFFF" />
 
-    <ImageButton
-        android:id="@+id/best_grade_editor_ok_button"
-        android:contentDescription="@string/ok"
-        android:src="@drawable/ic_checkmark_holo_light"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:onClick="addGrade" />
+    <EditText
+        android:id="@+id/grade_text"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+		android:layout_marginLeft="80dp"
+		android:layout_marginTop="10dp"
+        android:ems="10"
+        android:text="Grade"
+        android:textColor="#FFFFFF" />
 
     <EditText
         android:id="@+id/best_editor_grade_box"
         android:layout_width="50dp"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
+        android:layout_alignBaseline="@+id/grade_text"
+        android:layout_alignBottom="@+id/grade_text"
+        android:layout_alignLeft="@+id/best_grade_editor_back_button"
+        android:background="#FFFFFF"
         android:ems="10"
         android:imeOptions="actionDone"
         android:inputType="numberDecimal"
-        android:text="@string/grade"
         android:textColor="@android:color/black"
-        android:textSize="16sp" >
+        android:textSize="16dp" >
 
         <requestFocus />
     </EditText>

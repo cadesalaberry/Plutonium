@@ -17,14 +17,14 @@ public class Grade {
 	private ArrayList<Bestof> bestlist;
 
 	public Grade(String name) {
-		this(name, "", -1, -1, 0, "");
+		this(name, "", -1, -1, 0);
 	}
 	
 	/*public Grade(String name, double value, double outOf) {
 		this(name, -1, -1, 0);
 	}*/
 	
-	public Grade(String name, String type, double value, double outOf, double coefficient, String comments) {
+	public Grade(String name, String type, double value, double outOf, double coefficient) {
 		this.setName(name);
 		this.setEvalType(type);
 		this.setGrade(value, outOf);
