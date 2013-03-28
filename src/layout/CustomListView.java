@@ -1,22 +1,27 @@
 package layout;
 
+import java.util.List;
+
 import structures.Data;
+
+import com.example.gpaontherun.R;
+
 import android.content.Context;
 import android.graphics.Color;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-public class CustomListView extends ArrayAdapter<String> {
+public class CustomListView extends ArrayAdapter<String>{
 	String[] marks;
 
-	public CustomListView(Context context, int layout, int textViewResourceId,
-			String[] values) {
+	public CustomListView(Context context, int layout, int textViewResourceId, String[] values) {
 		super(context, layout, textViewResourceId, values);
 		marks = values;
 	}
-
+	
 	@Override
 	public View getView(int position, View v, ViewGroup parent) {
 		View myView = super.getView(position, v, parent);
@@ -25,40 +30,37 @@ public class CustomListView extends ArrayAdapter<String> {
 		int beginIndex = 0;
 		int endIndex = 0;
 		char value = '`';
-		for (int i = txt.length() - 10; i < txt.length(); i++) {
+		for(int i = txt.length() - 10; i < txt.length(); i++) {
 			value = txt.charAt(i);
-			if (value == ':') {
+			if(value == '(') {
 				beginIndex = i;
 			}
-			if (value == ' ' && beginIndex != 0) {
+			if(value == ')' && beginIndex != 0) {
 				endIndex = i;
-				temp = txt.substring(beginIndex + 1, endIndex);
+				temp = txt.substring(beginIndex+1, endIndex);
 				break;
-			}
+			}		
 		}
-		/********************
-		 * to fix!!!!! *
-		 ********************/
-
-		if (temp.equals("-") == false) {
-			if (temp.equals("A+") == true)
+		
+/********************
+ *  	to fix!!!!! *
+ ********************/
+		
+		if(temp.equals("-") == false) {	
+			if(temp.equals("A+") == true || temp.equals("A") == true || temp.equals("A-") == true)
 				((TextView) myView).setTextColor(Color.BLUE);
-			/*
-			 * else if(getLetterGradeWithPercentageGrade(mark).equals("B+") ||
-			 * getLetterGradeWithPercentageGrade(mark).equals("B")) ((TextView)
-			 * myView).setTextColor(Color.GREEN); else
-			 * if(getLetterGradeWithPercentageGrade(mark).equals("B-") ||
-			 * getLetterGradeWithPercentageGrade(mark).equals("C+")) ((TextView)
-			 * myView).setTextColor(Color.YELLOW); else
-			 * if(getLetterGradeWithPercentageGrade(mark).equals("C") ||
-			 * getLetterGradeWithPercentageGrade(mark).equals("C-")) ((TextView)
-			 * myView).setTextColor(0xFFF06D2F); else ((TextView)
-			 * myView).setTextColor(Color.RED);
-			 */
+			else if(temp.equals("B+") == true || temp.equals("B") == true)
+				((TextView) myView).setTextColor(Color.GREEN);
+			else if(temp.equals("B-") == true || temp.equals("C+") == true)
+				((TextView) myView).setTextColor(Color.YELLOW);
+			else if(temp.equals("C") == true || temp.equals("C-") == true)
+				((TextView) myView).setTextColor(0xFFF06D2F);
+			else 
+				((TextView) myView).setTextColor(Color.RED);
 		}
 		return myView;
 	}
-
+	
 	public static String getLetterGradeWithPercentageGrade(
 			double percentageGrade) {
 		String letterGrade = "";

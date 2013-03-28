@@ -67,14 +67,14 @@ public class Course_Selection extends Activity {
 			if (courses.get(i).getAverage().getGrades().size() > 0) {
 				values[i] = courses.get(i).getSubject()
 						+ " \t"
-						+ "Letter:  "
+						+ "Letter: ("
 						+ courses.get(i).getLetterGrade()
-						+ "  "
+						+ ") "
 						+ new DecimalFormat("#.##").format(courses.get(i)
 								.getAverage().getPercentage()) + "%";
 			} else {
-				values[i] = courses.get(i).getSubject() + "    Letter:"
-						+ courses.get(i).getLetterGrade() + "  " + "-" + "%";
+				values[i] = courses.get(i).getSubject() + "    Letter: ("
+						+ courses.get(i).getLetterGrade() + ") " + "-" + "%";
 			}
 
 			if (courses.get(i).getLocation().equals("") == false) {
@@ -112,7 +112,7 @@ public class Course_Selection extends Activity {
 			myText.setTextColor(0xFFF06D2F);
 		else if (gpa >= 0.0)
 			myText.setTextColor(Color.RED);
-		myText2.setText(thisSemester.toString());
+		myText2.setText("" + thisSemester.getSession() + " " + thisSemester.getYear());
 
 		// adapter = new ArrayAdapter<String>(this,
 		// android.R.layout.simple_list_item_1, android.R.id.text1, values);
